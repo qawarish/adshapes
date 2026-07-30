@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أنماط الإعلانات العالمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e0e0e0; --card:#ececec; --border:rgba(16,59,94,.18);
+    --text:#103b5e; --muted:rgba(16,59,94,.6);
+    --face:#103b5e;                 /* متحدث أمام الكاميرا */
+    --noface:rgba(16,59,94,.55);    /* بدون وجه */
+    --screen:rgba(16,59,94,.3);     /* صوت وشاشة */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'IBM Plex Sans Arabic',sans-serif;
+    line-height:1.9; padding:24px 16px 80px;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  header{margin-bottom:8px}
+  .kicker{color:var(--muted);font-size:13px;letter-spacing:.5px}
+  h1{
+    font-family:'Alexandria',sans-serif;font-weight:900;
+    font-size:clamp(30px,7vw,46px);line-height:1.3;margin:6px 0 10px;
+  }
+  h1 .num{color:var(--text)}
+  .intro{color:var(--muted);font-size:15px;max-width:56ch}
+
+  .note{
+    background:rgba(16,59,94,.06);border:1px solid rgba(16,59,94,.25);border-radius:12px;
+    padding:12px 16px;margin:18px 0;font-size:14px;color:#103b5e;
+  }
+
+  .filterbar{
+    position:sticky;top:0;z-index:5;background:var(--bg);
+    padding:14px 0 12px;margin-bottom:10px;
+    display:flex;gap:8px;flex-wrap:wrap;
+    border-bottom:1px solid var(--border);
+  }
+  .filterbar .label{width:100%;font-size:13px;color:var(--muted)}
+  .chip{
+    font-family:'IBM Plex Sans Arabic',sans-serif;
+    background:var(--card);border:1px solid var(--border);color:var(--text);
+    border-radius:999px;padding:6px 14px;font-size:14px;cursor:pointer;
+  }
+  .chip[data-f="face"]{border-color:var(--face)}
+  .chip[data-f="noface"]{border-color:var(--noface)}
+  .chip[data-f="screen"]{border-color:var(--screen)}
+  .chip.active{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:700}
+
+  details{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:14px;margin-bottom:10px;overflow:hidden;
+  }
+  details[data-cat="face"]{border-inline-start:4px solid var(--face)}
+  details[data-cat="noface"]{border-inline-start:4px solid var(--noface)}
+  details[data-cat="screen"]{border-inline-start:4px solid var(--screen)}
+  details.hide{display:none}
+
+  summary{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 16px;cursor:pointer;list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  .n{
+    font-family:'Alexandria',sans-serif;font-weight:700;font-size:15px;
+    color:var(--muted);min-width:28px;text-align:center;
+  }
+  .t{flex:1}
+  .t .ar{font-family:'Alexandria',sans-serif;font-weight:700;font-size:17px}
+  .t .en{font-size:12px;color:var(--muted);direction:ltr;text-align:right;display:block}
+  .arrow{color:var(--muted);transition:transform .2s;font-size:13px}
+  details[open] .arrow{transform:rotate(90deg)}
+
+  .body{padding:0 18px 18px;border-top:1px dashed var(--border)}
+  .body h4{
+    font-family:'Alexandria',sans-serif;font-size:13px;font-weight:700;
+    color:var(--muted);margin:16px 0 4px;
+  }
+  .body p{font-size:15px}
+  .cat-tag{
+    display:inline-block;font-size:12px;border-radius:6px;
+    padding:1px 10px;margin-top:14px;
+  }
+  details[data-cat="face"] .cat-tag{background:rgba(16,59,94,.09);color:var(--face)}
+  details[data-cat="noface"] .cat-tag{background:rgba(16,59,94,.09);color:var(--text)}
+  details[data-cat="screen"] .cat-tag{background:rgba(16,59,94,.09);color:var(--text)}
+
+  ol.ex{padding-inline-start:20px;font-size:15px}
+  ol.ex li{margin-bottom:6px}
+  ol.ex li::marker{color:var(--muted)}
+
+  a.watch{
+    display:inline-block;margin-top:16px;font-size:14px;font-weight:700;
+    color:var(--text);text-decoration:none;
+    border:1px solid var(--border);border-radius:10px;padding:8px 14px;
+  }
+  details[data-cat="face"] a.watch:hover{border-color:var(--face);color:var(--face)}
+  details[data-cat="noface"] a.watch:hover{border-color:var(--noface);color:var(--noface)}
+  details[data-cat="screen"] a.watch:hover{border-color:var(--screen);color:var(--screen)}
+
+  footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+  @media (prefers-reduced-motion:reduce){.arrow{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">مرجع عملي لكاتب الإعلانات</p>
+  <h1><span class="num">24</span> شكلًا للإعلانات الممولة</h1>
+  <p class="intro">لكل شكلٍ تعريفه، وهيئته على الشاشة، وثلاثة أمثلة ترسخ في الذهن، ورابط إلى نماذج حقيقية: اقرأ العنوان، واستحضر المثال، ثم قلّد بفنّ.</p>
+</header>
+
+<div class="note">
+  <strong>ملاحظة:</strong> هذه القائمة اجتهاد عملي متداول بين صنّاع الإعلانات، تغطي أكثر الأشكال استخدامًا اليوم، وبين بعضها تداخل طبيعي.
+</div>
+
+<div class="filterbar" id="filters">
+  <span class="label">اختر بحسب المتاح لديك:</span>
+  <button class="chip active" data-f="all">الكل (24)</button>
+  <button class="chip" data-f="noface">بدون وجه (10)</button>
+  <button class="chip" data-f="face">متحدث أمام الكاميرا (11)</button>
+  <button class="chip" data-f="screen">صوت وشاشة (3)</button>
+</div>
+
+<details data-cat="face">
+  <summary><span class="n">1</span><span class="t"><span class="ar">قصة</span><span class="en">Story</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>إعلان يُبنى بناء الفيلم القصير: شخصية تواجه مشكلة، تحاول، ثم تجد في المنتج حلًّا يغيّر يومها. المشاهد يتابع أحداثًا متصلة، والرسالة البيعية تصله في ثنايا الحكاية.</p>
+    <h4>الهيئة</h4>
+    <p>مشاهد ممثلة متسلسلة، لها بداية ووسط ونهاية.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>موظف يتأخر كل صباح بسبب ازدحام المقاهي، إلى أن يقتني آلة قهوة منزلية سريعة.</li>
+      <li>أم ترهقها فوضى أدوات المدرسة، فتنتظم حياتها بحقيبة مقسّمة الجيوب.</li>
+      <li>شاب تفصله أيام عن مناسبة مهمة وبشرته مجهدة، فنرافق رحلته مع روتين عناية.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=story+based+ad+examples" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">2</span><span class="t"><span class="ar">قصة مؤسس</span><span class="en">Founder Story</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>صاحب المشروع يظهر بنفسه ويروي بدايته ودوافعه. حضوره الشخصي يمنح العلامة وجهًا بشريًا، وعلى هذا الوجه تُبنى الثقة.</p>
+    <h4>الهيئة</h4>
+    <p>حديث صادق بلغة عفوية، من مكان العمل الحقيقي غالبًا.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>صاحبة مشغل عباءات تروي بدايتها بماكينة خياطة واحدة في غرفتها.</li>
+      <li>مؤسس محمصة قهوة يشرح سبب إصراره على التحميص بيده.</li>
+      <li>مبرمج يحكي المشكلة التي عاناها بنفسه فدفعته إلى بناء التطبيق.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=founder+story+ad+examples" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">3</span><span class="t"><span class="ar">محتوى مستخدم</span><span class="en">UGC</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>مقطع يبدو كأن شخصًا عاديًا صوّره بهاتفه ليشارك تجربته. حين يغيب طابع الإعلان عن المقطع، يستقبله المشاهد استقبال النصيحة.</p>
+    <h4>الهيئة</h4>
+    <p>تصوير هاتف، إضاءة اعتيادية، وحديث قريب من حديث الأصدقاء.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>فتاة تفتح طلبية عطر أمام الكاميرا وتسجل انطباعها الأول.</li>
+      <li>شاب يوثق روتينه الرياضي ويحضر البروتين في سياقه حضورًا طبيعيًا.</li>
+      <li>أم تجرب جهاز تنظيف بالبخار وتفاجئها النتيجة أثناء التصوير.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=UGC+ads+examples" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">4</span><span class="t"><span class="ar">عرض مباشر</span><span class="en">Live Demo</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>تشغيل المنتج أمام الكاميرا حتى يرى المشاهد النتيجة بعينه. الدليل هنا مرئي، والكلام ينحسر إلى أدنى حد.</p>
+    <h4>الهيئة</h4>
+    <p>لقطات مقرّبة، يدان والمنتج، ونتيجة تظهر في اللحظة نفسها.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>منظّف يُرَشّ على بقعة عنيدة فتزول خلال ثوانٍ.</li>
+      <li>خلاط يسحق مكعبات الثلج بضغطة واحدة.</li>
+      <li>هاتف يُغمر في الماء ثم يُخرج ويعمل كما كان.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=satisfying+product+demo+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">5</span><span class="t"><span class="ar">سيناريو تمثيلي</span><span class="en">Skit</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>مشهد تمثيلي قصير، كوميدي غالبًا، تدور فيه شخصيات وحوار ويحضر المنتج ضمن الحبكة. طرافته تدفع الناس إلى مشاركته، فينتشر الإعلان معه.</p>
+    <h4>الهيئة</h4>
+    <p>ممثل أو أكثر، وموقف مكثّف يبلغ ذروته عند ظهور المنتج.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>موظف يراوغ مديره بسبب تقرير متأخر، ثم ينقذه التطبيق في اللحظة الأخيرة.</li>
+      <li>ممثل واحد يؤدي شخصيتين: حاله قبل المنتج وحاله بعده.</li>
+      <li>مقلب بين صديقين تنكشف في ختامه فائدة المنتج.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=funny+skit+commercial" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="screen">
+  <summary><span class="n">6</span><span class="t"><span class="ar">سرد قصصي</span><span class="en">Storytelling</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">صوت وشاشة</span>
+    <h4>التعريف</h4>
+    <p>راوٍ يسرد حكاية بصوته فوق لقطات مصوّرة، ويفتتحها بجملة تشدّ السمع. يفترق عن «قصة» في أن السرد هنا مسموع والتمثيل غائب.</p>
+    <h4>الهيئة</h4>
+    <p>تعليق صوتي فوق لقطات مساندة.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>«في عام 2019 خسرت كل ما أملك» — افتتاحية لقصة عميل تُروى فوق لقطات معبّرة.</li>
+      <li>سيرة المنتج نفسه، من رسمة على ورقة إلى مصنع قائم.</li>
+      <li>حكاية قصيرة عن تاريخ القهوة تُختم بربط ذكي بالمتجر.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=storytelling+voiceover+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">7</span><span class="t"><span class="ar">الخلفية الخضراء</span><span class="en">Green Screen</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>متحدث يقف أمام صورة أو لقطة شاشة ويعلّق عليها، على طريقة تيك توك المعروفة. الصورة خلفه تمنح حديثه طابع الخبر.</p>
+    <h4>الهيئة</h4>
+    <p>المتحدث في المقدمة، وخلفه تغريدة أو صورة أو لقطة شاشة يشير إليها.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>تعليق على تغريدة تشكو مشكلة، يليه عرض الحل.</li>
+      <li>لقطة شاشة لأسعار المنافسين تُعرض خلفه للمقارنة.</li>
+      <li>تعليق على خبر جديد في مجاله يُربط بخدمته.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=green+screen+tiktok+style+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">8</span><span class="t"><span class="ar">لقطات استكشاف</span><span class="en">Discover / B-roll</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>لقطات سينمائية تعرّف المشاهد بالمكان أو المنتج عبر التفاصيل والأجواء والموسيقى. الإقناع هنا حسّي بصري قبل أن يكون لفظيًا.</p>
+    <h4>الهيئة</h4>
+    <p>مونتاج لقطات قصيرة متتابعة على موسيقى، من غير متحدث.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>جولة بصرية في مقهى جديد: الديكور، وإعداد الكوب، والبخار المتصاعد.</li>
+      <li>إعداد طبق في مطبخ مطعم من أول مكوّن إلى آخر لمسة.</li>
+      <li>تفاصيل مقرّبة لحقيبة جلدية: الغرز والسحّاب والملمس.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=cinematic+b-roll+cafe" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">9</span><span class="t"><span class="ar">السطر الواحد</span><span class="en">One Liner</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>إعلان بين خمس ثوانٍ وعشر: جملة واحدة قوية ولقطة واحدة. يناسب إعادة الاستهداف، حيث يكفي الجمهورَ تذكيرٌ خاطف.</p>
+    <h4>الهيئة</h4>
+    <p>لقطة واحدة، وجملة واحدة مكتوبة أو مسموعة، ثم الشعار.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>لقطة بطيئة لبخّة عطر مع عبارة «عطر يثبت طوال اليوم».</li>
+      <li>مندوب يسلّم طلبًا مع عبارة «التوصيل خلال ساعة».</li>
+      <li>شخص يغوص في مرتبة وثيرة مع عبارة «نومك يستحق».</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=youtube+bumper+ads+6+seconds" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">10</span><span class="t"><span class="ar">مقارنة</span><span class="en">Comparison</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>عنصران متجاوران يتكفّل الفرق بينهما بالإقناع: قبل وبعد، أو منتجك وسواه، أو طريقة قديمة وأخرى جديدة.</p>
+    <h4>الهيئة</h4>
+    <p>مشهدان متقابلان، أو جدول علامات، أو حالة واحدة قبل الاستخدام وبعده.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>شعر قبل السيروم وبعده، بالإضاءة والزاوية نفسيهما.</li>
+      <li>جدول يقابل بين مزايا المتجر ومزايا سواه.</li>
+      <li>طريقتان لتنظيف السيارة تُعرضان جنبًا إلى جنب.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=before+and+after+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">11</span><span class="t"><span class="ar">موشن جرافيك</span><span class="en">Motion</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>رسوم متحركة من أيقونات ونصوص وأشكال، من دون تصوير. يناسب الخدمات والأرقام والخطوات، وكل ما يعزّ على الكاميرا التقاطه.</p>
+    <h4>الهيئة</h4>
+    <p>تصميم جرافيكي متحرك مع موسيقى، وربما تعليق صوتي.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>خطوات الطلب من التطبيق بثلاث أيقونات: اختر، ثم ادفع، ثم استلم.</li>
+      <li>إحصاءات تتصاعد على الشاشة: «مئة ألف عميل».</li>
+      <li>إعلان تخفيضات بحروف متحركة تتصدرها نسبة الخصم.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=motion+graphics+advertising" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="screen">
+  <summary><span class="n">12</span><span class="t"><span class="ar">الشاشة المقسومة</span><span class="en">Split Screen</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">صوت وشاشة</span>
+    <h4>التعريف</h4>
+    <p>الشاشة مقسومة نصفين يعملان في وقت واحد، فتتوزع العين بينهما ويطول بقاء المشاهد أمام الإعلان.</p>
+    <h4>الهيئة</h4>
+    <p>نصفان متجاوران أو متعامدان، في كل منهما محتوى مختلف.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>متحدث يشرح المنتج في نصف، والمنتج يعمل في النصف الآخر.</li>
+      <li>«قبل» و«بعد» يسيران في اللحظة نفسها.</li>
+      <li>مقطع جذاب في الأعلى يمسك العين، والرسالة الإعلانية في الأسفل.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=split+screen+video+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">13</span><span class="t"><span class="ar">سالفة عفوية</span><span class="en">Yap</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>متحدث يسترسل أمام الكاميرا بلا نص مكتوب ولا قصّات، كأنه في مكالمة مع صديق. عفويته هي مصدر مصداقيته.</p>
+    <h4>الهيئة</h4>
+    <p>لقطة واحدة طويلة نسبيًا، وحديث متدفق بجودة اعتيادية.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>«دعوني أحكي لكم ما جرى لي أمس»، وينتهي الحديث عند المنتج.</li>
+      <li>سائق يتحدث عن تجربته مع خدمة معينة أثناء القيادة.</li>
+      <li>رأي مطوّل صريح في منتج، تتخلله استطرادات تزيده صدقًا.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=unscripted+talking+head+ugc" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">14</span><span class="t"><span class="ar">إعلان متنكر</span><span class="en">Native-Style Ad</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>إعلان يتخذ هيئة المنشور العادي: قصة شخصية أو محادثة أو مقطع يومي. يتجاوز حذر المشاهد لأنه يصله في هيئة محتوى مألوف.</p>
+    <h4>الهيئة</h4>
+    <p>محاكاة دقيقة للمحتوى العضوي: لقطات شاشة وقصص ومحادثات.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>قصة تبدو شخصية: «ما رأيكم بمشترياتي الجديدة؟» مع صورة المنتج.</li>
+      <li>لقطة شاشة لمحادثة تنصح فيها صديقة صديقتها بالمتجر.</li>
+      <li>مقطع يبدو عفويًا من داخل المتجر وقت الازدحام.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=ads+that+dont+look+like+ads" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">15</span><span class="t"><span class="ar">تايم لاين</span><span class="en">Timeline</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>عرض التحوّل عبر الزمن: من اليوم الأول إلى الثلاثين، أو من سنة التأسيس إلى اليوم. مرور الوقت أمام العين دليل على أثر المنتج.</p>
+    <h4>الهيئة</h4>
+    <p>لقطات متتابعة تحمل تواريخ أو أرقام أيام.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>نتائج منتج عناية تُوثّق أسبوعًا بعد أسبوع طوال شهر كامل.</li>
+      <li>مسيرة المتجر عبر السنوات، من طاولة في المنزل إلى مستودع.</li>
+      <li>نبتة تنمو يومًا بعد يوم بسماد معيّن، من الزاوية نفسها.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=day+1+to+day+30+results" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">16</span><span class="t"><span class="ar">بودكاست</span><span class="en">Podcast Clip</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>مقطع بهيئة البودكاست: جلسة وميكروفونات وحوار، يَرِد فيه ذكر المنتج عرضًا في سياق الحديث، فيكتسب مصداقية النقاش.</p>
+    <h4>الهيئة</h4>
+    <p>إطار بودكاست مألوف: كراسٍ وميكروفونات وكاميرات متعددة.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>ضيف يذكر تطبيقًا أفاده، والمقطع مقتطع من حلقة كاملة.</li>
+      <li>حلقة مصوّرة خصيصًا، يناقش فيها مقدم وضيف مشكلة يحلّها المنتج.</li>
+      <li>لحظة اندهاش الضيف من معلومة عن المنتج، تُقتطع وتُستخدم إعلانًا.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=podcast+clip+ad+example" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">17</span><span class="t"><span class="ar">عرض المنتج</span><span class="en">Product Showcase / 360</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>المنتج وحده على الشاشة: يدور دورة كاملة أو تتعاقب لقطات مزاياه، والنصوص تظهر تباعًا. موسيقى ونص وتصوير منتج، من دون وجه أو كلام.</p>
+    <h4>الهيئة</h4>
+    <p>إضاءة استوديو، لقطات مقرّبة، ونص ميزة مع كل لقطة.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>ساعة تدور ببطء على قاعدة، ومع كل دورة تظهر ميزة.</li>
+      <li>سماعة تتفكك أجزاؤها في الهواء ثم تلتئم من جديد.</li>
+      <li>لقطات متلاحقة لحقيبة: السحّاب والجيوب والحزام، على إيقاع الموسيقى.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=360+product+video+commercial" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="screen">
+  <summary><span class="n">18</span><span class="t"><span class="ar">شاشة جوال</span><span class="en">Screen Recording</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">صوت وشاشة</span>
+    <h4>التعريف</h4>
+    <p>تسجيل مباشر لشاشة هاتف أو حاسوب مع شرح صوتي، وربما وجه المتحدث في دائرة صغيرة. يعيش المشاهد التجربة كأنها بين يديه.</p>
+    <h4>الهيئة</h4>
+    <p>تسجيل شاشة مع صوت شارح، والمؤشر أو الإصبع يقود العين.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>خطوات الطلب من المتجر واحدةً واحدة حتى صفحة الدفع.</li>
+      <li>جولة سريعة في مزايا تطبيق، خاصية إثر خاصية.</li>
+      <li>مقارنة سعرَي المنتج نفسه في موقعين، مباشرة أمام المشاهد.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=app+screen+recording+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">19</span><span class="t"><span class="ar">نص فقط</span><span class="en">Text-Only</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>خلفية ساكنة أو لقطات هادئة، والكلام يظهر مكتوبًا كلمة كلمة على موسيقى. يؤدي رسالته كاملة والصوت مكتوم، وهكذا يتصفح أكثر الناس.</p>
+    <h4>الهيئة</h4>
+    <p>نص كبير واضح يتكشف تدريجيًا بإيقاع محسوب.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>اقتباس مؤثر على خلفية داكنة يظهر كلمة كلمة.</li>
+      <li>«ثلاثة أخطاء ترتكبها في عنايتك ببشرتك»، يظهر كل خطأ في سطر.</li>
+      <li>رسالة وجدانية فوق لقطة بحر ساكنة، تُختم باسم المتجر.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=kinetic+typography+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">20</span><span class="t"><span class="ar">شهادة</span><span class="en">Testimonial</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>عميل حقيقي يصوّر نفسه ويروي تجربته والنتيجة التي بلغها. شهادة شخص لا مصلحة له تظل أبلغ إثبات اجتماعي في البيع.</p>
+    <h4>الهيئة</h4>
+    <p>شخص يتحدث إلى الكاميرا من منزله أو مكان مألوف، بلا إخراج متكلف.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>عميلة تروي معاناتها مع تساقط الشعر وما تبدّل بعد ثلاثة أشهر.</li>
+      <li>صاحب مشروع صغير يصف ما وفّرته عليه خدمة الشحن وقتًا ومالًا.</li>
+      <li>عميل يعرض حالته قبل الاستخدام وبعده ويروي القصة بنفسه.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=customer+testimonial+video+example" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">21</span><span class="t"><span class="ar">مقابلات الشارع</span><span class="en">Street Interview</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>أسئلة تُطرح على عابرين في الشارع تصبّ في صالح المنتج، وإجاباتهم العفوية هي مادة الإعلان. ردود الفعل الحقيقية تستوقف المتصفح.</p>
+    <h4>الهيئة</h4>
+    <p>ميكروفون بيد المحاور، ولقطات سريعة لوجوه مختلفة وأجواء شارع.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>«ما أكثر ما يزعجك في التوصيل؟»، ثم يظهر حل التطبيق بعد الإجابات.</li>
+      <li>تحدي تذوق بين قهوة المتجر وقهوة المشارك المفضلة، بردود فعل حية.</li>
+      <li>سؤال المارة عن السعر المتوقع لمنتج، ودهشتهم حين يعرفون سعره.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=street+interview+marketing" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">22</span><span class="t"><span class="ar">يوم في حياتي</span><span class="en">Day in the Life</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>تدوين مصوّر ليوم أو روتين، يحضر فيه المنتج حضورًا طبيعيًا من غير أن يكون موضوع المقطع. البيع الضمني يعبر إلى المشاهد بلا مقاومة.</p>
+    <h4>الهيئة</h4>
+    <p>لقطات متتابعة من الصباح إلى المساء، بصوت صاحبها أو بنصوص.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>«يومي في العمل عن بُعد»، والقهوة أو الكرسي أو التطبيق جزء من الروتين.</li>
+      <li>«تجهزوا معي» لمناسبة، ويظهر العطر أو المكياج خطوة خطوة.</li>
+      <li>يوم صاحب المتجر نفسه: التغليف والطلبات والشحن، فتتوطد الألفة والثقة.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=day+in+my+life+vlog" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="noface">
+  <summary><span class="n">23</span><span class="t"><span class="ar">الشرح التعليمي</span><span class="en">How-To / Tutorial</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">بدون وجه</span>
+    <h4>التعريف</h4>
+    <p>درس قصير يعلّم المشاهد مهارة نافعة، والمنتج أداته. الناس تحفظ المقاطع التعليمية وتعود إليها، وكل عودة مشاهدة إعلانية جديدة.</p>
+    <h4>الهيئة</h4>
+    <p>خطوات مرقمة واضحة، تؤديها غالبًا يدان مع صوت يشرح.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>وصفة سريعة تُعَدّ بمقلاة معينة، والمقلاة هي المنتج.</li>
+      <li>«ثلاث إطلالات بقطعة واحدة» من متجر ملابس.</li>
+      <li>«العناية بحذاء الجلد في دقيقتين» بأدوات المتجر نفسه.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=tutorial+style+ads" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<details data-cat="face">
+  <summary><span class="n">24</span><span class="t"><span class="ar">الرد على تعليق</span><span class="en">Reply to Comment</span></span><span class="arrow">◀</span></summary>
+  <div class="body">
+    <span class="cat-tag">متحدث أمام الكاميرا</span>
+    <h4>التعريف</h4>
+    <p>يفتتح الفيديو بتعليق عميل ظاهر على الشاشة، ويكون المقطع كله إجابة عنه. السؤال يؤدي دور الافتتاحية، والرد يبدو حوارًا حيًا مع الجمهور.</p>
+    <h4>الهيئة</h4>
+    <p>صندوق التعليق مثبت أعلى الفيديو، ومتحدث يجيب عنه مباشرة.</p>
+    <h4>ثلاثة أمثلة</h4>
+    <ol class="ex">
+      <li>تعليق «هل يناسب البشرة الحساسة؟» يتبعه فيديو يجيب بتجربة حية.</li>
+      <li>ردّ رحب على تعليق ناقد: «قيل إن سعرنا مرتفع، وهذا ما تنالونه مقابله».</li>
+      <li>سؤال متكرر عن المقاسات، يُجاب عنه بقياس القطعة أمام الكاميرا.</li>
+    </ol>
+    <a class="watch" href="https://www.youtube.com/results?search_query=reply+to+comment+tiktok+ad" target="_blank" rel="noopener">شاهد نماذج حقيقية</a>
+  </div>
+</details>
+
+<footer>مرجع لكاتب الإعلانات — التصنيفات الثلاثة (بدون وجه، متحدث، صوت وشاشة) تعينك على اختيار الشكل بحسب إمكاناتك.</footer>
+</div>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('details[data-cat]');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.f;
+    cards.forEach(card => {
+      card.classList.toggle('hide', f !== 'all' && card.dataset.cat !== f);
+    });
+  }));
+</script>
+</body>
+</html>
