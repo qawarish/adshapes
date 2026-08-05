@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كيف يقرر البشر — ثلاثة كتب في خريطة واحدة | كونسبت</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#122A46;
+  --navy-deep:#0C1D31;
+  --orange:#F0762B;
+  --orange-soft:#FDEBDD;
+  --paper:#FAF6F0;
+  --ink:#1E2A38;
+  --line:#E4DCD0;
+  --cialdini:#2E4A8F;
+  --schwartz:#3A3A3A;
+  --whitman:#B02E2E;
+  --khairi:#2F6B3A;
+  --tijari:#5B3E8F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Naskh Arabic',serif;background:var(--paper);color:var(--ink);line-height:2.15;font-size:17px}
+h1,h2,h3,h4{font-family:'Amiri',serif;color:var(--navy);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ===== HERO ===== */
+.hero{background:var(--navy);color:#fff;padding:70px 0 0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:-120px;top:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,118,43,.35),transparent 70%)}
+.hero .kicker{display:inline-block;background:var(--orange);color:#fff;font-weight:600;padding:4px 18px;border-radius:100px;font-size:14px;letter-spacing:.5px;margin-bottom:22px}
+.hero h1{color:#fff;font-size:50px;font-weight:700;max-width:780px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p.sub{max-width:760px;font-size:18.5px;color:#C9D4E2;margin-top:18px}
+.books-row{display:flex;gap:16px;margin:46px 0 0;flex-wrap:wrap;position:relative;z-index:2}
+.book-chip{flex:1;min-width:250px;background:#fff;border-radius:14px 14px 0 0;padding:22px 22px 18px;border-top:6px solid}
+.book-chip.b1{border-color:var(--cialdini)}
+.book-chip.b2{border-color:var(--schwartz)}
+.book-chip.b3{border-color:var(--whitman)}
+.book-chip .en{font-family:Georgia,serif;font-size:13px;color:#8A8A8A;letter-spacing:.5px}
+.book-chip h3{font-size:21px;margin:4px 0 2px}
+.book-chip .author{font-size:14px;color:#777}
+.book-chip .role{margin-top:10px;font-size:15px;font-weight:600;padding:3px 12px;border-radius:100px;display:inline-block;color:#fff}
+.b1 .role{background:var(--cialdini)}.b2 .role{background:var(--schwartz)}.b3 .role{background:var(--whitman)}
+
+/* ===== SECTIONS ===== */
+section{padding:64px 0}
+section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:8px}
+.sec-num{font-family:'Amiri',serif;font-size:56px;font-weight:700;color:var(--orange);line-height:1}
+.sec-head h2{font-size:35px}
+.sec-src{font-size:14px;color:#8A8A8A;margin-bottom:26px}
+.sec-src b{color:var(--navy)}
+.lead{font-size:18px;max-width:900px;margin-bottom:24px}
+.lead strong{color:var(--navy)}
+p.body-p{font-size:16.5px;max-width:900px;margin-bottom:22px;color:#33404E}
+p.body-p strong{color:var(--navy)}
+
+/* boxes */
+.big-idea{background:var(--navy);color:#fff;border-radius:16px;padding:34px 38px;margin:34px 0;position:relative}
+.big-idea::before{content:attr(data-label);position:absolute;top:-14px;right:28px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;padding:2px 16px;border-radius:100px}
+.big-idea p{font-family:'Amiri',serif;font-size:25px;line-height:1.95}
+.big-idea p em{font-style:normal;color:var(--orange)}
+
+.rule-box{background:var(--orange-soft);border-right:5px solid var(--orange);border-radius:0 10px 10px 0;padding:18px 24px;margin:24px 0}
+.rule-box .tag{font-size:13px;font-weight:700;color:var(--orange);display:block;margin-bottom:4px}
+.rule-box p{font-family:'Amiri',serif;font-size:19.5px;color:var(--navy);line-height:2}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px 18px}
+section.alt .card{background:var(--paper)}
+.card h4{font-size:20px;margin-bottom:6px}
+.card p{font-size:15.5px;color:#43505E}
+.card .mini{font-size:13.5px;color:#8A8A8A;margin-top:8px}
+
+/* example project banners */
+.ex-banner{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:30px 0}
+.ex{border-radius:14px;padding:24px 26px;color:#fff}
+.ex.kh{background:linear-gradient(135deg,#2F6B3A,#245229)}
+.ex.tj{background:linear-gradient(135deg,#5B3E8F,#46306E)}
+.ex .lbl{font-size:13px;font-weight:700;background:rgba(255,255,255,.2);padding:2px 14px;border-radius:100px;display:inline-block;margin-bottom:10px}
+.ex h3{color:#fff;font-size:23px;margin-bottom:8px}
+.ex p{font-size:15px;color:rgba(255,255,255,.92);line-height:2}
+.ex ul{margin:10px 22px 0 0;font-size:14.5px;color:rgba(255,255,255,.92)}
+.ex ul li{margin-bottom:2px}
+
+/* example application pair inside sections */
+.ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 26px}
+.ex-app{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px 14px;border-top:4px solid}
+section.alt .ex-app{background:var(--paper)}
+.ex-app.kh{border-top-color:var(--khairi)}
+.ex-app.tj{border-top-color:var(--tijari)}
+.ex-app .who{font-size:13px;font-weight:700;margin-bottom:4px}
+.ex-app.kh .who{color:var(--khairi)}
+.ex-app.tj .who{color:var(--tijari)}
+.ex-app p{font-size:15px;color:#43505E;line-height:2}
+.ex-app .adline{font-family:'Amiri',serif;font-size:17.5px;color:var(--navy);background:#F5F1EA;border-radius:8px;padding:8px 14px;margin-top:8px;line-height:1.95}
+.ex-app .adline::before{content:"مثال سطر إعلاني: ";font-family:'Noto Naskh Arabic',serif;font-size:12.5px;color:#8A8A8A;display:block}
+
+/* LF8 grid */
+.lf8{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.lf8 .f{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center;position:relative}
+.lf8 .f .ic{font-size:30px;display:block;margin-bottom:8px}
+.lf8 .f b{font-size:16px;color:var(--navy);display:block;line-height:1.7}
+.lf8 .f span{font-size:13px;color:#8A8A8A;display:block;margin-top:4px;line-height:1.8}
+.lf8 .f.hot{border:2px solid var(--orange);background:var(--orange-soft)}
+
+/* ladder levels — expanded cards */
+.level{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:22px;overflow:hidden}
+.level .lv-head{color:#fff;padding:14px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.level .lv-head .num{font-family:'Amiri',serif;font-size:30px;font-weight:700;background:rgba(255,255,255,.18);width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.level .lv-head h3{color:#fff;font-size:23px;margin:0}
+.level .lv-head .short{font-size:14px;opacity:.85;width:100%;line-height:1.8}
+.level .lv-body{padding:20px 26px 8px}
+.level .lv-row{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.level .lv-row:last-of-type{border-bottom:none}
+.level .lv-row .k{font-weight:700;color:var(--navy);font-size:15px}
+.level .lv-row .v{color:#43505E;line-height:2}
+.lv1 .lv-head{background:#6C8FAF}
+.lv2 .lv-head{background:#3E6A94}
+.lv3 .lv-head{background:#2A5077}
+.lv4 .lv-head{background:#1B3A5F}
+.lv5 .lv-head{background:var(--navy-deep)}
+
+/* sophistication stairs */
+.stairs{display:flex;align-items:flex-end;gap:10px;margin:30px 0 8px;min-height:300px}
+.stair{flex:1;border-radius:10px 10px 0 0;padding:16px 14px 12px;color:#fff;display:flex;flex-direction:column;justify-content:flex-start}
+.stair b{font-family:'Amiri',serif;font-size:17px;line-height:1.6}
+.stair span{font-size:12.5px;opacity:.92;margin-top:6px;line-height:1.9}
+.st1{height:160px;background:#9BB3C9}
+.st2{height:200px;background:#6C8FAF}
+.st3{height:240px;background:#3E6A94}
+.st4{height:280px;background:#1B3A5F}
+.st5{height:320px;background:var(--orange)}
+.stairs-cap{font-size:14px;color:#8A8A8A;text-align:center;margin-bottom:26px}
+
+/* cialdini cards */
+.cial{display:grid;grid-template-columns:1fr;gap:18px;margin:28px 0}
+.cial .c{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+section.alt .cial .c{background:var(--paper)}
+.cial .c .head{background:var(--cialdini);color:#fff;padding:12px 22px;display:flex;align-items:center;gap:12px}
+.cial .c .head .n{background:#fff;color:var(--cialdini);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+.cial .c .head h4{color:#fff;font-size:20px;margin:0}
+.cial .c .body{padding:18px 22px 16px}
+.cial .c .body>p{font-size:15.5px;color:#43505E;margin-bottom:10px;line-height:2}
+.cial .c .body>p b{color:var(--navy)}
+.pill{font-size:13px;padding:3px 12px;border-radius:100px;font-weight:600;display:inline-block;margin:4px 0 0 6px}
+.pill.warn{background:#FBE9E9;color:#B02E2E}
+
+/* whitman tools */
+.tool{background:#fff;border:1px solid var(--line);border-right:5px solid var(--whitman);border-radius:0 12px 12px 0;padding:20px 26px 14px;margin-bottom:16px}
+section.alt .tool{background:var(--paper)}
+.tool h4{font-size:20px}
+.tool h4 .en{font-family:Georgia,serif;font-size:12.5px;color:#A0A0A0;font-weight:400;margin-right:8px}
+.tool>p{font-size:15.5px;color:#43505E;margin-top:6px;line-height:2}
+.tool>p b{color:var(--navy)}
+
+/* synthesis map */
+.map{background:var(--navy);border-radius:18px;padding:40px 34px;margin:34px 0;color:#fff}
+.map h3{color:#fff;text-align:center;font-size:26px;margin-bottom:6px}
+.map .cap{text-align:center;color:#9FB2C8;font-size:14.5px;margin-bottom:30px}
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:nowrap}
+.node{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 16px;text-align:center;position:relative}
+.node .stage{font-size:12.5px;color:var(--orange);font-weight:700;letter-spacing:.5px}
+.node h4{color:#fff;font-size:19px;margin:4px 0 6px}
+.node p{font-size:13px;color:#B9C7D8;line-height:1.95}
+.node .src{margin-top:10px;font-size:11.5px;padding:2px 10px;border-radius:100px;display:inline-block;color:#fff}
+.arrow{display:flex;align-items:center;color:var(--orange);font-size:26px;padding:0 8px;flex-shrink:0}
+.src.s1{background:var(--cialdini)}.src.s2{background:#555}.src.s3{background:var(--whitman)}.src.s0{background:var(--orange)}
+.ethics-bar{margin-top:22px;background:rgba(240,118,43,.12);border:1px dashed rgba(240,118,43,.6);border-radius:12px;padding:14px 22px;font-size:14.5px;color:#F5D8C2;text-align:center;line-height:2}
+
+/* walkthrough */
+.walk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:18px}
+section.alt .walk{background:var(--paper)}
+.walk h4{font-size:21px;margin-bottom:10px}
+.walk ol{margin:0 24px 0 0}
+.walk ol li{font-size:15.5px;color:#43505E;margin-bottom:10px;line-height:2}
+.walk ol li b{color:var(--navy)}
+
+/* comparison table */
+table.cmp{width:100%;border-collapse:collapse;margin:26px 0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+table.cmp th{background:var(--navy);color:#fff;padding:12px 18px;font-family:'Amiri',serif;font-size:18px;text-align:right}
+table.cmp td{padding:12px 18px;border-bottom:1px solid var(--line);font-size:15px;color:#43505E;vertical-align:top;line-height:2}
+table.cmp tr td:first-child{font-weight:700;color:var(--navy);width:18%;background:#FBF8F3}
+table.cmp tr:last-child td{border-bottom:none}
+
+/* exercises */
+.exercise{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 26px;margin-bottom:16px;display:flex;gap:18px;align-items:flex-start}
+.exercise .n{font-family:'Amiri',serif;font-size:26px;font-weight:700;color:var(--orange);flex-shrink:0;line-height:1.4}
+.exercise p{font-size:15.5px;color:#43505E;line-height:2.1}
+.exercise p b{color:var(--navy)}
+
+footer{background:var(--navy-deep);color:#8FA3BA;padding:40px 0;text-align:center;font-size:14px}
+footer b{color:var(--orange)}
+
+@media(max-width:900px){
+  .grid2,.grid3,.ex-banner,.ex-pair{grid-template-columns:1fr}
+  .lf8{grid-template-columns:repeat(2,1fr)}
+  .flow{flex-direction:column}
+  .arrow{transform:rotate(90deg);justify-content:center;padding:6px 0}
+  .hero h1{font-size:34px}
+  .level .lv-row{grid-template-columns:1fr;gap:2px}
+  .stairs{flex-direction:column;align-items:stretch;min-height:0}
+  .stair{height:auto!important}
+}
+@media (prefers-reduced-motion: no-preference){
+  .card,.tool,.cial .c,.level{transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover,.tool:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(18,42,70,.08)}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker">كونسبت · مادة تدريبية لصانعات المحتوى</span>
+    <h1>كيف يقرر البشر؟<br>ثلاثة كتب، <em>خريطة واحدة</em></h1>
+    <p class="sub">ثلاثة من أهم الكتب التي كُتبت عن الإقناع والإعلان، مدموجة في منهج واحد. تشالديني يشرح لماذا يقتنع الدماغ، شوارتز يشرح متى تنجح الرسالة ومتى تفشل، وويتمان يعطيك أدوات التنفيذ على الورق. وسنطبّق كل فكرة على مثالين حقيقيين من شغلنا: مشروع خيري ومنتج تجاري.</p>
+    <div class="books-row">
+      <div class="book-chip b1">
+        <span class="en">INFLUENCE</span>
+        <h3>التأثير: سيكولوجية الإقناع</h3>
+        <div class="author">روبرت تشالديني — عالم نفس اجتماعي</div>
+        <span class="role">لماذا نقتنع</span>
+      </div>
+      <div class="book-chip b2">
+        <span class="en">BREAKTHROUGH ADVERTISING</span>
+        <h3>الإعلان الخارق</h3>
+        <div class="author">يوجين شوارتز — من أعظم كتّاب الإعلان المباشر</div>
+        <span class="role">متى تنجح الرسالة</span>
+      </div>
+      <div class="book-chip b3">
+        <span class="en">CA$HVERTISING</span>
+        <h3>كاشفرتايزنج</h3>
+        <div class="author">درو إريك ويتمان — ممارس إعلان مباشر</div>
+        <span class="role">كيف تنفّذ</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXAMPLES INTRO ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٠</span><h2>قبل أن نبدأ: مثالان سيرافقاننا في كل صفحة</h2></div>
+    <p class="lead">النظريات تُنسى، والأمثلة تبقى. لذلك سنشرح كل فكرة في هذه المادة مرتين: مرة على مشروع خيري، ومرة على منتج تجاري. احفظي المثالين جيدًا، لأن كل قسم قادم سيرجع إليهما:</p>
+    <div class="ex-banner">
+      <div class="ex kh">
+        <span class="lbl">المثال الخيري</span>
+        <h3>كفالة يتيم بسهم استثماري</h3>
+        <p>مشروع استثماري على أرض في مكة. المتبرع يشتري سهمًا في المشروع، والعائد الذي يربحه هذا السهم كل فترة يذهب لكفالة يتيم. الفكرة الجوهرية: التبرع العادي يُصرف مرة واحدة وينتهي، أما السهم فيبقى قائمًا ويولّد كفالة متجددة، ويتجدد معها أجر المتبرع.</p>
+      </div>
+      <div class="ex tj">
+        <span class="lbl">المثال التجاري</span>
+        <h3>سلالة الطيب — البكج الفاخر</h3>
+        <p>باقة واحدة تجمع سبعة منتجات عطرية فاخرة بقيمة 299 ريالًا، مع ضمان ذهبي لمدة ثلاثة أيام:</p>
+        <ul>
+          <li>عطر قمرا</li>
+          <li>عطر آسر</li>
+          <li>ثلاثة أنواع مسك للاستخدام اليومي تدوم لساعات: مسك سلالة الخاص، مسك رومانس، مسك سلالة الفاخر</li>
+          <li>أوقيتان من العود الملكي</li>
+        </ul>
+      </div>
+    </div>
+    <p class="body-p">لاحظي شيئًا من الآن: المثالان مختلفان تمامًا في المنتج والجمهور والهدف، ومع ذلك ستنطبق عليهما نفس القوانين النفسية بالضبط. هذا هو الدرس الأول في المادة كلها: <strong>قوانين القرار البشري واحدة، والذي يتغيّر هو طريقة تطبيقها.</strong></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 1: BIG IDEA ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">١</span><h2>الفكرة الجامعة: الشعور يقرر، والعقل يكتب المبرر</h2></div>
+    <p class="sec-src">هذه الفكرة تتفق عليها الكتب الثلاثة، وكل ما بعدها يُبنى عليها</p>
+    <p class="body-p">تخيّلي شخصًا اشترى البكج الفاخر أمس. لو سألتيه اليوم «ليش اشتريته؟» سيعطيك قائمة منطقية مرتبة: «سبعة منتجات بسعر ممتاز، وفيه ضمان، وأنا محتاج عطور للمناسبات». هذا الكلام صحيح، لكنه كُتب في رأسه <strong>بعد</strong> القرار. القرار الحقيقي حدث قبل ذلك بلحظات، حين شاهد الإعلان وتحرّك شيء داخله: تخيّل نفسه داخلًا مجلسًا وريحته تسبقه، أو تذكّر أن عيد أمه قريب وما زال محتارًا في الهدية. الشعور اتخذ القرار أولًا، ثم جاء العقل ورتّب الأسباب المنطقية التي يقولها للناس ولنفسه.</p>
+    <p class="body-p">علماء النفس درسوا هذا الترتيب في آلاف التجارب ووجدوه ثابتًا: <strong>الانفعال يسبق التحليل، والتحليل يبرر ما اختاره الانفعال.</strong> ولهذا الاكتشاف نتيجة عملية مباشرة على شغلك ككاتبة: الإعلان الذي يبدأ بالمواصفات والأرقام والمنطق يخاطب الموظف الذي يكتب المبررات، والإعلان الذي يبدأ بمشهد أو ألم أو رغبة يخاطب صاحب القرار نفسه. المواصفات لها مكانها، لكنه يأتي لاحقًا، بعد أن يكون الشعور قد تحرّك.</p>
+    <div class="big-idea" data-label="جملة شوارتز الأشهر">
+      <p>«الإعلان لا يملك القدرة على خلق الرغبة في نفوس الناس. الرغبات موجودة قبله بملايين السنين. كل ما يقدر عليه الإعلان هو أن يأخذ رغبة موجودة أصلًا، <em>ويوجّهها نحو منتج معيّن</em>.»</p>
+    </div>
+    <p class="body-p">افهمي هذه الجملة جيدًا لأنها تغيّر طريقة تفكيرك في كل بريف يصلك. حين يقولون لك «اكتبي إعلانًا يخلّي الناس تحب العود»، فالمهمة كما صيغت مستحيلة: حب الطيب موجود في ثقافتنا قبل الإعلان بقرون. المهمة الحقيقية والممكنة: خذي حب الطيب الموجود أصلًا، ووجّهيه نحو هذا البكج تحديدًا. وحين يقولون «اكتبي إعلانًا يخلّي الناس تهتم بالأيتام»، فالرحمة موجودة في قلوب الناس قبلك. شغلك أن توجّهيها نحو هذا المشروع تحديدًا، وأن تزيلي العوائق التي منعتها من التحرك سابقًا: «تبرعت قبل وما دريت وين راحت فلوسي»، «الكفالة التزام شهري يخوّفني».</p>
+    <div class="rule-box">
+      <span class="tag">القاعدة الأولى في المادة</span>
+      <p>قبل أن تكتبي أي إعلان، اسألي: ما الرغبة الموجودة أصلًا عند جمهوري والتي سيوجّهها هذا الإعلان؟ إذا ما لقيتي جوابًا، فالمشكلة في فهمك للجمهور، والحل مزيد من البحث قبل الكتابة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: LF8 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٢</span><h2>الوقود: القوى الثماني التي تحرّك كل البشر</h2></div>
+    <p class="sec-src">المصدر: كتاب <b>كاشفرتايزنج — درو إريك ويتمان</b></p>
+    <p class="body-p">طيب، قلنا إن الرغبات موجودة أصلًا وشغلنا توجيهها. السؤال التالي بديهي: ما هي هذه الرغبات؟ ويتمان يجيب في أول فصل من كتابه: يوجد ثماني رغبات <strong>وُلدنا بها</strong>، مبرمجة في تكويننا البيولوجي، لا يتعلمها الإنسان من مجتمعه ولا تنطفئ مهما تقدّم به العمر. يسمّيها «قوى الحياة الثماني»، وهي مسؤولة عن الغالبية الساحقة من قرارات الشراء في العالم:</p>
+    <div class="lf8">
+      <div class="f"><span class="ic">🫀</span><b>البقاء والاستمتاع بالحياة</b><span>الصحة، إطالة العمر، جودة العيش</span></div>
+      <div class="f"><span class="ic">🍽️</span><b>الطعام والشراب</b><span>أقدم رغبة استُخدمت في البيع عبر التاريخ</span></div>
+      <div class="f"><span class="ic">🛡️</span><b>الأمان من الخوف والألم والخطر</b><span>حماية النفس والمال والمستقبل</span></div>
+      <div class="f"><span class="ic">💍</span><b>الرفقة والزواج</b><span>تُستخدم في سوقنا ضمن حدودنا الاجتماعية</span></div>
+      <div class="f"><span class="ic">🛋️</span><b>العيش المريح</b><span>الراحة، وكره التعب والانتظار والزحمة</span></div>
+      <div class="f"><span class="ic">🏆</span><b>التفوق والمكانة</b><span>أن أكون متقدمًا، وأن تكون صورتي حسنة</span></div>
+      <div class="f hot"><span class="ic">👨‍👩‍👧</span><b>حماية من نحب</b><span>أقوى محرّك للفعل الفوري عند البشر</span></div>
+      <div class="f hot"><span class="ic">🤝</span><b>القبول الاجتماعي</b><span>أن أُقبَل وأُحترم بين الناس الذين تهمني نظرتهم</span></div>
+    </div>
+    <p class="body-p">ويضيف ويتمان قائمة ثانية من تسع رغبات <strong>مكتسبة</strong>، نتعلمها من المجتمع: الرغبة في المعرفة، في الكفاءة، في النظافة، في الجمال، في الجودة، في الشراء الاقتصادي الذكي، في الموثوقية، وغيرها. هذه حقيقية ومؤثرة، لكنها أضعف بكثير من الثماني الفطرية. القاعدة العملية: <strong>افتحي إعلانك بواحدة من الثماني، واستخدمي المكتسبات دليلًا داعمًا في وسطه.</strong> إعلان يفتح بـ«جودة عالية وسعر اقتصادي» يخاطب رغبة مكتسبة باردة، وسيمرّ عليه الناس دون توقف.</p>
+    <p class="body-p">الآن نطبّق على مثالينا. اسألي عن كل منتج: أي القوى الثماني يخدم فعلًا؟</p>
+    <div class="ex-pair">
+      <div class="ex-app kh">
+        <span class="who">مشروع كفالة اليتيم بالسهم الاستثماري</span>
+        <p>يلمس ثلاث قوى دفعة واحدة، وكلها من الأعمق في القائمة: <b>حماية من نحب</b> (غريزة رعاية الصغير تمتد من أطفالنا إلى كل طفل بلا سند)، و<b>القبول الاجتماعي</b> (أن أكون في نظر نفسي وناسي إنسانًا نافعًا)، و<b>البقاء</b> بصورته الإيمانية العميقة: أثر يستمر بعد انتهاء العمر. وميزة هذا المشروع تحديدًا أنه يخدم القوة الثالثة بشكل حرفي: السهم يبقى قائمًا يولّد كفالة وأجرًا سنة بعد سنة.</p>
+        <div class="adline">تبرعك العادي ينصرف في يومه وينتهي. سهمك في مشروع مكة يشتغل، ويربح، ويكفل يتيمًا كل سنة من جديد.</div>
+      </div>
+      <div class="ex-app tj">
+        <span class="who">البكج الفاخر من سلالة الطيب</span>
+        <p>يلمس قوتين رئيسيتين: <b>التفوق والمكانة</b> (العطر الفاخر جزء من حضور الإنسان وصورته في المجالس والمناسبات)، و<b>القبول الاجتماعي</b> بوجهيه: رائحتي بين الناس، والهدية الراقية التي أقدّمها لمن أحب فترفع قدري عنده. لاحظي أن «سبعة منتجات» و«299 ريال» لا يظهران في هذه المرحلة أبدًا: هذه معلومات للعقل المبرر، ومكانها وسط الإعلان وآخره.</p>
+        <div class="adline">في المناسبات، الناس تسلّم عليك مرة. وريحتك تسلّم عليهم طول الجلسة.</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <span class="tag">القاعدة الثانية</span>
+      <p>الإعلان الذي ما تقدرين تحددين أي قوة من الثماني يخاطب، إعلان يتكلم عن المنتج ويترك الإنسان. حددي القوة أولًا، ثم اكتبي.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: AWARENESS (EXPANDED) ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٣</span><h2>سلّم الوعي: أين يقف جمهورك الآن؟</h2></div>
+    <p class="sec-src">المصدر: كتاب <b>الإعلان الخارق — يوجين شوارتز</b> · أثمن فكرة في هذه المادة كلها، خذي وقتك فيها</p>
+    <p class="body-p">لنبدأ بقصة توضح المشكلة. تخيّلي أن سلالة الطيب أطلقت إعلانًا واحدًا نصّه: «البكج الفاخر بـ299 ريال، اطلبه الآن». ثم عرضنا هذا الإعلان على شخصين مختلفين. الأول زبون قديم للمتجر، جرّب عطر قمرا وأحبه، وشاف البكج في حساب المتجر وحطّه في باله. الثاني شاب يسحب في تيك توك، ما سمع باسم سلالة الطيب في حياته. الأول سيتوقف عند الإعلان، لأنه كان ينتظر بالضبط هذه المعلومة: كم السعر ووش يشمل. الثاني سيسحب للأعلى خلال ثانية، لأن الإعلان يجاوب سؤالًا هو ما سأله أصلًا: من أنتم؟ وليش أهتم؟</p>
+    <p class="body-p">نفس الإعلان. نجح مع الأول وفشل مع الثاني. وهذا اكتشاف شوارتز الكبير: <strong>نجاح الرسالة الإعلانية يعتمد على درجة وعي من يستقبلها أكثر مما يعتمد على جودة كتابتها.</strong> شوارتز قسّم الناس إلى خمس درجات وعي، ولكل درجة نوع مختلف من الإعلانات يصلح لها. الكاتبة المحترفة تسأل قبل أي حرف: على أي درجة يقف جمهور هذا الإعلان؟ لأن الجواب يقرر من أين يبدأ النص أصلًا.</p>
+
+    <div class="level lv5">
+      <div class="lv-head"><span class="num">٥</span><h3>الأكثر وعيًا</h3><span class="short">يعرف منتجك، ويعرف قيمته، ومقتنع به، وينتظر السبب الذي يحسم اللحظة: سعر، عرض، تذكير.</span></div>
+      <div class="lv-body">
+        <div class="lv-row"><span class="k">من هو؟</span><span class="v">زبون سابق، أو متابع لحساباتكم، أو شخص أضاف المنتج للسلة وما أكمل الشراء. في الخيري: متبرع سابق للجمعية نفسها يعرف مشاريعها.</span></div>
+        <div class="lv-row"><span class="k">ماذا يدور في رأسه؟</span><span class="v">«أبغاه. متى أشتريه؟ وبكم؟ وفيه عرض؟»</span></div>
+        <div class="lv-row"><span class="k">وظيفة إعلانك</span><span class="v">العرض مباشرة وبلا مقدمات: الاسم، السعر، المحتوى، الحافز، وطريقة الطلب. أي قصة أو تشويق هنا تأخير لشخص مدّ يده للدفع.</span></div>
+        <div class="lv-row"><span class="k">مثال الكفالة</span><span class="v">«فتحنا حجز أسهم مشروع مكة. احجز سهمك اليوم، وكفالتك تبدأ مع أول عائد.»</span></div>
+        <div class="lv-row"><span class="k">مثال البكج</span><span class="v">«البكج الفاخر: عطر قمرا، عطر آسر، ثلاثة أنواع مسك، وأوقيتان عود ملكي. 299 ريالًا، وضمان ذهبي ثلاثة أيام. اطلبه اليوم.»</span></div>
+        <div class="lv-row"><span class="k">الخطأ الشائع</span><span class="v">إضاعة أول خمس ثوانٍ في شرح من نحن وما قصتنا لشخص يعرفكم أفضل منكم.</span></div>
+      </div>
+    </div>
+
+    <div class="level lv4">
+      <div class="lv-head"><span class="num">٤</span><h3>واعٍ بالمنتج</h3><span class="short">سمع عن منتجك، لكنه غير مقتنع بعد. عنده أسئلة أو شكوك تقف بينه وبين الشراء.</span></div>
+      <div class="lv-body">
+        <div class="lv-row"><span class="k">من هو؟</span><span class="v">شاف إعلانكم قبل أسبوع وما تفاعل، أو دخل صفحة المنتج وطلع، أو سمع عن المشروع من صديق واكتفى بالسماع.</span></div>
+        <div class="lv-row"><span class="k">ماذا يدور في رأسه؟</span><span class="v">«شفتهم قبل.. بس هل يستاهل؟ وش يفرقهم عن غيرهم؟ ولو ما عجبني وش أسوي؟»</span></div>
+        <div class="lv-row"><span class="k">وظيفة إعلانك</span><span class="v">الدليل وفكّ الاعتراض. هنا مكان الضمانات والأرقام الموثقة والآلية المشروحة. وهنا يظهر مبدأ مهم اسمه «كلفة التصديق»: كل ادعاء كبير يحتاج دليلًا بحجمه، وإلا رفضه العقل تلقائيًا.</span></div>
+        <div class="lv-row"><span class="k">مثال الكفالة</span><span class="v">اعتراضه المتوقع: «استثمار؟ وإذا خسر المشروع؟» فيجيب الإعلان بالآلية نفسها: «السهم يُستثمر في أصل عقاري قائم بمكة، تحت إشراف الجهة المرخصة، وتقارير العائد تصلك أولًا بأول.» الدليل هنا هو الإجابة الحرفية على الشك الحرفي.</span></div>
+        <div class="lv-row"><span class="k">مثال البكج</span><span class="v">اعتراضه المتوقع: «299 على شي ما شميته؟» فيجيب الضمان الذهبي: «جرّبه عندك ثلاثة أيام كاملة. ما ناسبك؟ نسترجعه.» لاحظي كيف يتحول الضمان من سطر في البريف إلى بطل الإعلان في هذه الدرجة تحديدًا.</span></div>
+        <div class="lv-row"><span class="k">الخطأ الشائع</span><span class="v">إعادة تعريف المنتج من الصفر لشخص تجاوز مرحلة التعريف، أو عرض خصم على شخص مشكلته الثقة والخصم ما يعالج الثقة.</span></div>
+      </div>
+    </div>
+
+    <div class="level lv3">
+      <div class="lv-head"><span class="num">٣</span><h3>واعٍ بالحل</h3><span class="short">يعرف أن حلولًا لمشكلته موجودة في السوق، لكنه ما سمع باسمك تحديدًا.</span></div>
+      <div class="lv-body">
+        <div class="lv-row"><span class="k">من هو؟</span><span class="v">يعرف أن كفالة الأيتام موجودة والجمعيات كثيرة، أو يعرف أن متاجر العطور الشرقية تملأ الإنترنت. المشكلة: أنتم بالنسبة له اسم واحد وسط زحمة أسماء.</span></div>
+        <div class="lv-row"><span class="k">ماذا يدور في رأسه؟</span><span class="v">«أعرف هالنوع من الخدمات.. طيب هذولا وش يميزهم عن العشرين اللي قبلهم؟»</span></div>
+        <div class="lv-row"><span class="k">وظيفة إعلانك</span><span class="v">التمييز: اربطي اسمك بالشيء الذي تنفردون به فعلًا ولا يستطيع الآخرون قوله. وإذا كان جمهورك جرّب حلولًا قبلك وخذلته، سمّي سبب الخذلان القديم واعرضي كيف تعالجونه.</span></div>
+        <div class="lv-row"><span class="k">مثال الكفالة</span><span class="v">«تعرف الكفالة الشهرية: مبلغ يُصرف كل شهر، ويوم توقف تتوقف معك الكفالة. في مشروع مكة، سهمك يشتغل بدالك: تدفع مرة، والعائد يكفل عنك كل سنة.» هذا تمييز حقيقي لأن الكفالة التقليدية ما تقدر تدّعيه.</span></div>
+        <div class="lv-row"><span class="k">مثال البكج</span><span class="v">«اللي يجمع عطوره من خمس محلات يدفع أكثر ويطلع بروائح ما تتناسق. البكج الفاخر مبني ليكون خزانة عطرية كاملة: عطران للمناسبات، ثلاثة مسك لليوم العادي، وعود للضيوف والعزايم.» التمييز هنا في فكرة التكامل، والمحل الذي يبيع عطورًا مفردة ما يقدر يدّعيها.</span></div>
+        <div class="lv-row"><span class="k">الخطأ الشائع</span><span class="v">كلام يصلح لأي منافس: «جودة عالية، أسعار منافسة، توصيل سريع». هذا الكلام يذوب في الزحمة لأن الجميع يقوله حرفيًا.</span></div>
+      </div>
+    </div>
+
+    <div class="level lv2">
+      <div class="lv-head"><span class="num">٢</span><h3>واعٍ بالمشكلة</h3><span class="short">يحس بألم أو نقص حقيقي في حياته، لكنه ما يعرف أن للسوق حلًا له. هذه الدرجة أخصب أرض لكتابة إعلانات مميزة.</span></div>
+      <div class="lv-body">
+        <div class="lv-row"><span class="k">من هو؟</span><span class="v">في التجاري: يحس أن حضوره العطري في المناسبات أقل مما يتمنى، ويحتار كل مرة في اختيار الهدية. في الخيري: يتصدق ويحس من داخله أن صدقته لحظة تنتهي بانتهائها، ويتمنى أثرًا يدوم، لكنه ما يعرف أن صيغة مثل «سهم يكفل» موجودة أصلًا.</span></div>
+        <div class="lv-row"><span class="k">ماذا يدور في رأسه؟</span><span class="v">«فيه شي ناقص.. بس هذا هو الوضع، وش باليد؟» — لاحظي: يعرف الألم وتعايش معه، لأنه ما يتخيل أن له حلًا.</span></div>
+        <div class="lv-row"><span class="k">وظيفة إعلانك</span><span class="v">افتحي بالألم نفسه، بكلماته هو التي يقولها لنفسه، حتى يحس أن الإعلان يقرأ ما في رأسه ويتوقف. وبعد أن يتوقف، اكشفي له أن مخرجًا موجودًا. الترتيب مقدس: الألم أولًا ثم الحل، لأن الحل قبل فتح الألم يمر على شخص ما حس أنه محتاجه.</span></div>
+        <div class="lv-row"><span class="k">مثال الكفالة</span><span class="v">«كل صدقة تصدقت فيها راحت لمحتاج واستفاد منها، الله يتقبل. بس وقّف لحظة: كم وحدة منها ما زالت شغالة الحين، هذي اللحظة؟ فيه طريقة تخلي تبرعك يشتغل وأنت نايم: سهم في مشروع بمكة، ربحه يكفل يتيمًا كل سنة.»</span></div>
+        <div class="lv-row"><span class="k">مثال البكج</span><span class="v">«زواج الأسبوع الجاي بنفس عطر دوام أمس. عيد أمك قرب وأنت لسا محتار وش تجيب لها. كل مرة نفس الحيرة، ونفس الحل الناقص. البكج الفاخر مسويها لك خزانة كاملة: لكل مناسبة ريحتها، وللهدية علبة تشرّفك.»</span></div>
+        <div class="lv-row"><span class="k">الخطأ الشائع</span><span class="v">فتح الإعلان باسم المنتج ومزاياه. الشخص في هذه الدرجة ما يعرفك ولا يدور عليك، والشيء الوحيد الذي يوقفه هو صوت مشكلته هو.</span></div>
+      </div>
+    </div>
+
+    <div class="level lv1">
+      <div class="lv-head"><span class="num">١</span><h3>غير واعٍ</h3><span class="short">ما يحس بمشكلة أصلًا. حياته ماشية من وجهة نظره. أصعب جمهور وأغلاه وصولًا، وأكبره حجمًا.</span></div>
+      <div class="lv-body">
+        <div class="lv-row"><span class="k">من هو؟</span><span class="v">شاب يعتبر أي «سبري» من البقالة عطرًا كافيًا، وشخص يشوف إعلانات الجمعيات كخلفية بصرية يمر عليها من سنين دون أن تعنيه.</span></div>
+        <div class="lv-row"><span class="k">ماذا يدور في رأسه؟</span><span class="v">لا شيء يخصك إطلاقًا. وهذه هي الصعوبة: ما عنده سؤال حتى تجاوبينه، ولا ألم حتى تفتحينه.</span></div>
+        <div class="lv-row"><span class="k">وظيفة إعلانك</span><span class="v">شوارتز يقول: في هذه الدرجة ما ينفع الكلام عن المنتج ولا حتى عن المشكلة، لأن كليهما خارج اهتمامه. المدخل الوحيد هو هو نفسه: قصة تشبه حياته، أو هوية يتعرف عليها، أو مشهد يعيشه فعلًا، ثم يكتشف نفسه داخل الموضوع دون أن يشعر أنه في إعلان.</span></div>
+        <div class="lv-row"><span class="k">مثال الكفالة</span><span class="v">فيديو قصير يحكي عن رجل عادي تُوفي من عشرين سنة، وجاره ما زال يذكره كل ما مرّ على البيت الذي بناه للأيتام في حارتهم. القفلة فقط تكشف: «فيه ناس أثرها قاعد يشتغل وهي مو موجودة. مشروع مكة يبني لك نفس الشي: سهم يكفل باسمك، اليوم وبعدين.»</span></div>
+        <div class="lv-row"><span class="k">مثال البكج</span><span class="v">مشهد يعرفه كل سعودي: واحد دخل المجلس، وقبل ما يمد يده يسلم، ثلاثة التفتوا. ما قال أحد شيئًا، بس الكل عرف أن فيه ريحة دخلت قبله. الإعلان يبيع اللحظة الاجتماعية نفسها، والبكج يظهر في آخر سطرين حلًا طبيعيًا لها.</span></div>
+        <div class="lv-row"><span class="k">الخطأ الشائع</span><span class="v">رمي العرض والسعر على جمهور بارد. «299 ريال لسبعة منتجات» جملة بلا معنى عند شخص ما سأل نفسه يومًا عن العطور. النتيجة المعتادة: ميزانية تُحرق على مشاهدات بلا تحويل.</span></div>
+      </div>
+    </div>
+
+    <p class="body-p"><strong>طيب، كيف أعرف عمليًا على أي درجة يقف جمهوري؟</strong> من ثلاثة مصادر: أولًا الاستهداف الإعلاني نفسه، فحملة «إعادة استهداف» لزوار الموقع تخاطب درجة 4 و5، وحملة على جمهور بارد واسع تخاطب درجة 1 و2. ثانيًا المنصة وسلوكها، فمن يبحث في قوقل عن «كفالة يتيم» واعٍ بالحل ويدور عليه بنفسه، ومن يسحب في تيك توك ما يدور على شيء إطلاقًا. ثالثًا البريف: حقل الجمهور فيه يوصف علاقة الناس بالفئة (ما جربوها، جربوا وتركوا، مستخدمو منافس)، وهذا الوصف هو درجة الوعي بصيغة أخرى.</p>
+    <div class="rule-box">
+      <span class="tag">القاعدة الثالثة — احفظيها نصًا</span>
+      <p>كلما نزل جمهورك درجة على السلّم، ابتعد خطاف إعلانك عن المنتج واقترب من حياة المشاهد. والإعلان الواحد الناجح يصعد بالمشاهد السلّم داخله: يفتح بألم يخص حياته، ثم يقدم دليلًا يجيب ذلك الألم، ثم يقفل بعرض وطلب فعل. افتحي بالعرض وقد قفزت درجات جمهورك كلها.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4: SOPHISTICATION ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٤</span><h2>نضج السوق: كم مرة سمعوا وعدك من قبل؟</h2></div>
+    <p class="sec-src">المصدر: كتاب <b>الإعلان الخارق — يوجين شوارتز</b></p>
+    <p class="body-p">السلّم السابق قاس شيئًا واحدًا: كم يعرف المشاهد عن مشكلته وعن منتجك. هذا القسم يقيس شيئًا مختلفًا تمامًا وكثير من الكتّاب يخلطون بينهما: <strong>كم إعلانًا مشابهًا لإعلانك استهلك هذا المشاهد قبل أن يصل إليك؟</strong> لأن المشاهد الذي سمع وعد «رائحة تدوم طويلًا» خمسين مرة من خمسين متجرًا صار عنده مناعة ضده، حتى لو كان الوعد صادقًا عندك أنت. الأسواق تنضج مثل البشر: الجملة التي أدهشتها في سنتها الأولى تثير مللها في سنتها الخامسة، وسخريتها في العاشرة. وشوارتز رسم لهذا النضج خمس مراحل، ولكل مرحلة نوع الرسالة الوحيد الذي ما زال يعمل فيها:</p>
+    <div class="stairs">
+      <div class="stair st1"><b>١ · سوق جديد</b><span>لا أحد قال شيئًا بعد. الوعد البسيط المباشر يكفي: «عطر يدوم طويلًا». في السوق الجديد، ذكر المنفعة وحده حدث.</span></div>
+      <div class="stair st2"><b>٢ · المنافسة بدأت</b><span>الجميع دخل بنفس الوعد، فالحل المؤقت وعد أكبر بالأرقام: «يدوم 12 ساعة». تعمل فترة قصيرة ثم تشتعل حرب مبالغات تحرق ثقة السوق كله.</span></div>
+      <div class="stair st3"><b>٣ · الوعود احترقت</b><span>الناس بطّلت تصدق أي وعد. الحل: الآلية. اشرحي «كيف» يحقق منتجك الوعد: «تركيز زيت عطري أعلى، لهذا يدوم». السبب المشروح يُصدَّق حين يعجز الوعد المرسل.</span></div>
+      <div class="stair st4"><b>٤ · الآليات احترقت</b><span>صار لكل منافس «تقنيته» و«سره». الحل: آلية أسهل أو أسرع أو أضمن من آلياتهم، أو نقل المنافسة لمقياس جديد ما استخدمه أحد قبلك.</span></div>
+      <div class="stair st5"><b>٥ · سوق منهك</b><span>لا وعد يُصدَّق ولا آلية تُميّز. الباب الأخير: هوية المشاهد نفسه. الإعلان يعكس له نفسه وحياته، فيتوقف لأنه شاف نفسه، والمنتج يدخل من هذا الباب.</span></div>
+    </div>
+    <p class="stairs-cap">كل درجة لليسار تعني سوقًا سمع وعودًا أكثر، ويحتاج منك عمقًا أكبر ليتوقف عندك</p>
+    <p class="body-p">وقفة عند المرحلة الرابعة لأنها تحتاج شرحًا: ماذا يعني «نقل المنافسة لمقياس جديد»؟ يعني أن كل فئة تتنافس عادة على وحدة قياس واحدة: متاجر التوصيل تتنافس على «كم دقيقة»، والعطور على «كم ساعة يدوم». حين تحترق هذه الوحدة، معركة الأرقام داخلها تصير محسومة سلفًا لصاحب الميزانية الأكبر، والذكاء يتحول إلى تغيير وحدة القياس نفسها: بدل «كم ساعة يدوم عطرك» اسألي «كم مناسبة تغطي خزانتك العطرية؟». فجأة صار البكج ذو السبعة منتجات يلعب في ملعب لا يقف فيه أحد غيره.</p>
+    <div class="ex-pair">
+      <div class="ex-app kh">
+        <span class="who">أين يقف سوق التبرع للأيتام؟</span>
+        <p>بين المرحلتين الثالثة والرابعة. جملة «اكفل يتيمًا» تُقال في السوق السعودي من عشرات السنين، وجملة «تبرعك يصنع فرقًا» فقدت معناها من كثرة التكرار. والآن انظري لمشروعنا بعين شوارتز: <b>«سهم استثماري يكفل يتيمًا من عائده» هو حرفيًا إجابة المرحلة الثالثة: آلية جديدة كاملة تدخل سوقًا تعب من الوعود.</b> المشروع نفسه، بتصميمه، ميزة إعلانية. ولهذا يجب أن تحتل الآلية قلب الإعلان: كيف يشتغل السهم، وأين تذهب الأرباح، ومن يشرف. الآلية هنا هي الرسالة.</p>
+      </div>
+      <div class="ex-app tj">
+        <span class="who">وأين يقف سوق العطور الشرقية؟</span>
+        <p>في المرحلة الرابعة وأعمق. «فخامة» و«أصالة» و«يدوم طويلًا» و«عود طبيعي 100%» كلها كلمات ميتة من كثرة الاستعمال، والمشاهد يمر عليها دون أن يقرأها أصلًا. المتاح أمام البكج طريقان يعملان معًا: آلية عرض جديدة (سبعة منتجات متكاملة بسعر واحد مع ضمان استرجاع، وهذه صيغة قليل من ينافس عليها) وخطاب هوية للمرحلة الخامسة: الرجل الذي تعرفه المجالس من ريحته قبل وجهه. اللعب على وحدة قياس جديدة: اكتمال الخزانة العطرية بدل طول الثبات.</p>
+      </div>
+    </div>
+    <div class="rule-box">
+      <span class="tag">القاعدة الرابعة</span>
+      <p>قبل كتابة أي إعلان اسألي: ما الجملة التي يكررها كل منافسي هذا المنتج؟ هذه الجملة محروقة، وممنوع أن تكون عمود إعلانك حتى لو كانت صادقة. ابحثي عن المساحة التي ما قالها أحد.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: CIALDINI ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٥</span><h2>الاختصارات السبعة: كيف يوافق الدماغ؟</h2></div>
+    <p class="sec-src">المصدر: كتاب <b>التأثير — روبرت تشالديني</b></p>
+    <p class="body-p">تشالديني عالم نفس قضى ثلاث سنوات متخفيًا: اشتغل مع باعة السيارات، وجامعي التبرعات، وشركات التسويق الهاتفي، ليكتشف لماذا يقول الناس «نعم». وخلاصة ما وجده: الدماغ البشري يستقبل يوميًا آلاف القرارات الصغيرة، ولو حلّل كل واحد منها من الصفر لتعطّل عن الحياة. فطوّر <strong>اختصارات ذهنية</strong>: قواعد سريعة تشتغل تلقائيًا. مثلًا: «الغالي غالبًا أجود»، «اللي يشتريه الكل غالبًا كويس»، «اللي يقوله الخبير غالبًا صح». هذه الاختصارات تصيب في أغلب الأحيان، ولهذا نثق بها ونطبّقها دون تفكير. تشالديني حصر سبعة اختصارات كبرى، ومن يفهمها يفهم نصف قرارات البشر:</p>
+    <div class="cial">
+      <div class="c"><div class="head"><span class="n">١</span><h4>المعاملة بالمثل</h4></div><div class="body">
+        <p><b>الفكرة:</b> من أعطاك شيئًا، ولو صغيرًا وما طلبته، تحس بدَين داخلي تجاهه وترتاح حين ترده. جرّبتيها بنفسك: صاحب العطارة اللي عطاك تذوّق مجاني صار رفض عرضه بعدها أثقل على قلبك.</p>
+        <p><b>في إعلان الكفالة:</b> الإعلان الذي يعلّم المشاهد شيئًا قيّمًا قبل أن يطلب منه (مثلًا: يشرح له الفرق بين صدقة تُصرف مرة وأصل يولّد صدقة كل سنة) أعطاه معرفة مفيدة مجانًا، فيستقبل الطلب في آخره بنفس أكثر انفتاحًا.</p>
+        <p><b>في إعلان البكج:</b> محتوى يعلّم المتابع كيف يطبّق العود صح، أو كيف يطبّق المسك بحيث يدوم أطول، يبني هذا الدَين الصغير قبل أي حملة بيع.</p>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٢</span><h4>الالتزام والاتساق</h4></div><div class="body">
+        <p><b>الفكرة:</b> الإنسان يحب أن تكون تصرفاته متسقة مع بعضها ومع صورته عن نفسه. فمن وافق على طلب صغير يصعب عليه رفض الطلب الأكبر الذي في نفس الاتجاه، لأن الرفض يناقض موافقته الأولى. الباعة يسمونها «القدم في الباب».</p>
+        <p><b>في إعلان الكفالة:</b> هذا سر قوة «عتبة الدخول الصغيرة». الشخص الذي حجز سهمًا واحدًا صار في نظر نفسه «شريكًا في مشروع مكة»، وهذه الهوية الجديدة تجعله أقرب بكثير لحجز أسهم إضافية لاحقًا ولدعوة أهله للمشروع. أول ريال يبني هوية، والهوية تكمل الطريق وحدها.</p>
+        <p><b>في إعلان البكج:</b> من جرّب مسكًا واحدًا من سلالة الطيب وأعجبه، صار شراء البكج الكامل عنده استمرارًا طبيعيًا لقرار سابق نجح، فخاطبيه بهذه الصفة: «عجبك مسك سلالة؟ هذي الخزانة كاملة».</p>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٣</span><h4>الدليل الاجتماعي</h4></div><div class="body">
+        <p><b>الفكرة:</b> حين ما نعرف القرار الصح، ننظر ماذا يفعل الآخرون ونقلدهم. مطعمان متجاوران، واحد فيه طابور وواحد فاضي: أغلب الناس تدخل صاحب الطابور دون أن تعرف عن أكله شيئًا. وتشالديني يضيف تدقيقًا مهمًا: نقلّد <b>من يشبهنا</b> تحديدًا، ودليل من فئة بعيدة عنا لا يحرك فينا شيئًا.</p>
+        <p><b>في إعلان الكفالة:</b> عدد الأسهم المحجوزة أو عدد الشركاء، بشرطين: أن يكون الرقم متحققًا من مصدر موثوق (وهذا شرط ثابت في منهجنا لكل رقم يُنشر)، وأن يُقدَّم أصحابه كأشخاص يشبهون المشاهد. وانتبهي للوجه المعاكس للقاعدة: عبارات مثل «للأسف قليل من يهتم بالأيتام» تعلّم المشاهد أن الإهمال هو سلوك الأغلبية، فتشجع عكس ما تقصد.</p>
+        <p><b>في إعلان البكج:</b> تقييمات حقيقية بأسماء وصور طبيعية، أو مقاطع عفوية لعملاء يفتحون البكج ويعلقون بلغتهم. المقطع العفوي من شخص عادي يتفوق إعلانيًا على أفخم تصوير احترافي، والسبب هذا الاختصار بالضبط: المشاهد يرى فيه شخصًا يشبهه.</p>
+        <span class="pill warn">تحذير: رقم غير متحقق أو تقييم مفبرك يحوّل هذا الاختصار إلى غش صريح</span>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٤</span><h4>الإعجاب والألفة</h4></div><div class="body">
+        <p><b>الفكرة:</b> نوافق من نحبهم بسهولة أكبر، ونحب من يشبهوننا في لغتهم وحياتهم وهمومهم. ولهذا مندوب المبيعات الشاطر يفتّش أول شيء عن أرضية مشتركة معك: نفس مدينتك، نفس فريقك.</p>
+        <p><b>في الإعلانين معًا:</b> هذا الاختصار هو السبب العلمي وراء قاعدة أساسية في شغلنا: نكتب باللهجة السعودية الطبيعية التي يتكلمها الجمهور فعلًا، والاختبار أن النص يُسمع مثل رسالة صوتية من صديق. كل جملة تجعل المشاهد يقول «هذا واحد منا» ترفع فرص الموافقة على كل ما يأتي بعدها، وكل جملة إعلانية متكلفة («استمتع بتجربة عطرية استثنائية») تفعل العكس: تذكّره أنه أمام إعلان، فيرفع دفاعاته.</p>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٥</span><h4>السلطة</h4></div><div class="body">
+        <p><b>الفكرة:</b> إشارات الخبرة والمرجعية (لقب طبي، جهة رسمية، ترخيص، تخصص) تختصر على الدماغ عناء التقييم. قبل أن يسأل «وش يقول؟» يسأل «منو اللي يقول؟».</p>
+        <p><b>في إعلان الكفالة:</b> الإشراف الرسمي والترخيص هما الجواب المباشر على أثقل اعتراض في التبرع كله: «وين تروح فلوسي؟». ولها موضع صحيح داخل الإعلان: بعد فتح الألم أو الشك، حيث تأتي جوابًا عليه، لأن قائمة تراخيص في أول الإعلان تجاوب سؤالًا ما انطرح بعد فيمر عليها المشاهد دون اهتمام.</p>
+        <p><b>في إعلان البكج:</b> أي إشارة تخصص حقيقية موثقة: سنوات في العود، مصدر مكونات، شهادة جودة. والقاعدة الثابتة: كل إشارة سلطة تُذكر لازم تكون حقيقية وقابلة للإثبات، فالسلطة المدّعاة أسرع طريق لفقدان السوق كله.</p>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٦</span><h4>الندرة</h4></div><div class="body">
+        <p><b>الفكرة:</b> خسارة شيء تؤلمنا ضعف ما يفرحنا كسب شيء مساوٍ له، فالفرصة المحدودة تبدو أثمن من المتاحة دائمًا، و«آخر قطعتين» تحسم ترددًا عمره أسبوع. أقوى الاختصارات مفعولًا، وأكثرها استغلالًا بالكذب في السوق.</p>
+        <p><b>في إعلان الكفالة:</b> عندنا ندرة صادقة مبنية في المنتج نفسه: أسهم المشروع عدد محدود بطبيعة الحال، لأن الأرض والمشروع لهما حجم محدد. «باقي كذا سهم» جملة صادقة قابلة للتحقق، وتشتغل بقوة. وتضاف لها الندرة الموسمية الحقيقية: رمضان وعشر ذي الحجة مواسم لها نهاية فعلية في التقويم.</p>
+        <p><b>في إعلان البكج:</b> تُستخدم فقط إذا كانت حقيقية: كمية إنتاج محدودة فعلًا، أو عرض له تاريخ نهاية معلن يُحترم. القاعدة عندنا حاسمة وغير قابلة للنقاش: الاستعجال المزيف (عداد تنازلي يتجدد كل يوم، «آخر فرصة» تتكرر كل أسبوع) يجيب مبيعات اليوم ويعلّم جمهورك كله أن كلامك ما ينصدق، فتخسرين أغلى ما تملكين.</p>
+        <span class="pill warn">القاعدة: بلا موعد نهاية حقيقي موثق، ممنوع استخدام لغة الاستعجال</span>
+      </div></div>
+      <div class="c"><div class="head"><span class="n">٧</span><h4>الوحدة: هو منّا</h4></div><div class="body">
+        <p><b>الفكرة:</b> إضافة تشالديني الأخيرة على كتابه، ويعتبرها أعمق السبعة. الإعجاب يعني «أحبه»، والوحدة تعني «هو منا، من دائرتي: أهلي، حارتي، بلدي، ملتي». وحين يكون الطلب قادمًا من داخل الدائرة، تتغير المعادلة من أساسها: ما عاد الشخص يساعد غريبًا، صار يساعد «نفسه الممتدة».</p>
+        <p><b>في إعلان الكفالة:</b> هذا أقوى اختصار في الخيري كله، ومشروعنا محظوظ فيه: مكة اسم يجمع دائرة الملة كلها، فعبارة مثل «لك سهم في مكة» تخاطب انتماءً موجودًا في قلب كل مسلم قبل الإعلان. وهنا نفهم قاعدة من قواعدنا الثابتة فهمًا علميًا: نقدّم المتبرع دائمًا شريكًا في المشروع، لأن الشريك يقف داخل الدائرة مع المستفيد، بينما صورة «المنقذ» تضعه فوق الدائرة ينظر لمن تحته، فتقتل إحساس الوحدة الذي هو مصدر القوة أصلًا.</p>
+        <p><b>في إعلان البكج:</b> الطيب نفسه طقس اجتماعي سعودي أصيل: المبخرة للضيف، والعطر هدية المحبة. الإعلان الذي يقدّم البكج امتدادًا لهذا الإرث المشترك («عادتنا نستقبل بالطيب») يدخل من باب الوحدة الثقافية، ويتفوق على إعلان يقدّمه منتج رفاهية مستوردًا الشكل والروح.</p>
+      </div></div>
+      <div class="c"><div class="head" style="background:var(--orange)"><span class="n" style="color:var(--orange)">⚖</span><h4>تحذير تشالديني الأخير: السلاح يعمل بالاتجاهين</h4></div><div class="body">
+        <p>تشالديني ختم كتابه بفصل كامل عن الأخلاق، وخلاصته: هذه الاختصارات تشتغل سواء كانت الإشارة صادقة أو مزيفة. الدليل الاجتماعي المفبرك يبيع، والندرة الكاذبة تبيع، لفترة. ثم يكتشف السوق الكذبة، فيتوقف عن تصديق الجميع، الصادق والكاذب معًا. المخادع يسرق مبيعات شهر ويخرّب أدوات المهنة على كل من فيها. ولهذا كل تقنية في هذه الصفحة تُستخدم عندنا بشرط واحد ثابت: أن تكون مبنية على حقيقة متحققة يمكن إثباتها. هذا الشرط هو الفرق بين كاتبة إعلانات محترفة ونصّاب موهوب.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: WHITMAN TOOLBOX ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٦</span><h2>صندوق أدوات ويتمان: التنفيذ على الورق</h2></div>
+    <p class="sec-src">المصدر: كتاب <b>كاشفرتايزنج — درو إريك ويتمان</b> · اخترنا تسع أدوات من أصل سبعة عشر مبدأ في الكتاب، وهي الأنسب لكاتبة الفيديو القصير</p>
+    <p class="body-p">شوارتز أعطانا الاستراتيجية (متى وأين نقول)، وتشالديني أعطانا علم النفس (لماذا يقتنعون). ويتمان يعطينا الجزء الثالث: تكتيكات الصياغة نفسها، مبنية على قرن كامل من أبحاث نفسية المستهلك. هذه التسع ستستخدمينها حرفيًا في نصوص هذا الأسبوع:</p>
+
+    <div class="tool"><h4>الخوف يحرّك بشرطين <span class="en">Fear Appeal</span></h4>
+      <p><b>الفكرة:</b> الرسالة التي تلمس خوفًا حقيقيًا توقظ الانتباه فورًا، لكن الأبحاث وجدت شرطين لتحويل هذا الانتباه إلى فعل: أن يكون التهديد شخصيًا وقابلًا للتصديق، وأن يأتي معه حل واضح وقريب وسهل التنفيذ. الخوف الذي يأتي وحده دون حل قريب يدفع المشاهد للهروب من الإعلان نفسه، لأن الهروب أسهل طريقة يتخلص بها من الشعور السيئ.</p>
+      <p><b>في الكفالة:</b> الخوف المشروع هنا خوف المتبرع على أثره: «أعمالك لها يوم توقف فيه». ويأتي الحل في نفس النَفَس، قريبًا وملموسًا: سهم واحد بمشروع مكة يواصل الشغل عنك. لاحظي المسافة القصيرة بين فتح الخوف وتقديم النجاة، هذه المسافة هي الفرق بين إعلان يحرّك وإعلان يطفّش. وحدّنا الثابت في الخيري: نفتح خوف المتبرع على نفسه وأثره، والمستفيد يظهر دائمًا بكرامته كاملة.</p>
+      <p><b>في البكج:</b> الخوف الاجتماعي الخفيف: لحظة إحراج هدية مكررة أو حضور باهت في مناسبة مهمة. يُفتح بلمسة خفيفة ويُغلق فورًا بالحل.</p>
+    </div>
+
+    <div class="tool"><h4>مرآة الذات <span class="en">Ego Morphing</span></h4>
+      <p><b>الفكرة:</b> الناس يشترون المنتجات التي تعكس الصورة التي يتمنون رؤيتها عن أنفسهم. المنتج بالنسبة للمشتري مرآة قبل أن يكون أداة: ساعة فاخرة تقول «أنا ناجح»، وسيارة عائلية تقول «أنا أب مسؤول».</p>
+      <p><b>في الكفالة:</b> الصورة المعروضة: «أنا إنسان له سهم شغال في مكة». هوية يعتز صاحبها بها بينه وبين نفسه، وتستحق أن تُبنى في الإعلان بوضوح: المشاهد يشتري هذه الصورة لنفسه قبل أن يشتري السهم.</p>
+      <p><b>في البكج:</b> الصورة المعروضة: «أنا رجل مرتّب، لكل مقام عنده طيبه». الإعلان الذي يبيع هذه الصورة يبيع البكج معها تلقائيًا، والإعلان الذي يعدد المنتجات السبعة دون صورة يبيع علبة.</p>
+    </div>
+
+    <div class="tool"><h4>سلسلة الغايات <span class="en">Means-End Chain</span></h4>
+      <p><b>الفكرة:</b> المشتري ما يدفع مقابل المنتج نفسه، يدفع مقابل آخر حلقة في سلسلة تبدأ منه. المثال الكلاسيكي: من يشتري مثقابًا لا يريد المثقاب، يريد الحفرة. ولا يريد الحفرة، يريد الرف المعلق. ولا يريد الرف، يريد بيتًا مرتبًا يحس فيه أنه مسيطر على حياته. الإعلان القوي يقفز مباشرة لآخر السلسلة.</p>
+      <p><b>في الكفالة:</b> السلسلة: سهم ← عائد استثماري ← كفالة شهرية ← يتيم يكمل تعليمه وحياته ← أجر يصل المتبرع متجددًا كل سنة، في حياته وبعدها. آخر حلقتين هما البيعة الحقيقية، والسهم والعائد وسيلتان توصلان لهما.</p>
+      <p><b>في البكج:</b> السلسلة: سبعة منتجات ← رائحة مناسبة لكل موقف ← حضور واثق في كل مجلس ← مكانة وذكر طيب بين الناس. الإعلان يفتح من آخر السلسلة (الحضور والمكانة) ويقدّم السبعة منتجات وسيلتها.</p>
+    </div>
+
+    <div class="tool"><h4>القصة الواحدة تغلب الإحصائية <span class="en">Examples vs. Statistics</span></h4>
+      <p><b>الفكرة:</b> الأبحاث حسمتها: القصة المحسوسة الواحدة تقنع البشر وتبقى في ذاكرتهم أضعاف ما يفعله الرقم الإجمالي الكبير، لأن الدماغ يخزّن الصور والمشاهد، والأرقام الإجمالية تدخل أذنًا وتخرج من الثانية. «مئات المستفيدين» تمر مرور الكرام، وقصة مستفيد واحد باسمه وتفاصيل يومه تسكن الذاكرة.</p>
+      <p><b>في الكفالة:</b> بدل «المشروع يكفل عشرات الأيتام»، يومٌ واحد ليتيم واحد مكفول: حقيبته المدرسية، درسه الخصوصي، عشاؤه. مشهد واحد ملموس يحمل الفكرة كلها. والتزامنا الثابت هنا: أي قصة تُعرض تكون حقيقية بموافقة أصحابها، ودون كشف ما يجرح كرامتهم، فالمستفيد صاحب حياة وكرامة قبل أي اعتبار إعلاني.</p>
+      <p><b>في البكج:</b> بدل «سبعة منتجات فاخرة» كوصف عام، عدّديها بأسمائها وموقع كل واحد في أسبوع المشتري: قمرا لزواج الخميس، مسك سلالة الخاص لدوام الأحد، والعود الملكي لضيوف العيد. القائمة الملموسة تُرى في الخيال، والوصف العام يتبخر.</p>
+    </div>
+
+    <div class="tool"><h4>الاعتراف الصغير يبيع <span class="en">Message Sidedness</span></h4>
+      <p><b>الفكرة:</b> اكتشاف عجيب ومثبت بالتجارب: الإعلان الذي يعترف بحدّ صغير أو عيب بسيط في منتجه يُصدَّق في كل ادعاءاته الأخرى أكثر من الإعلان المثالي الخالي من أي نقص. السبب: الاعتراف يكسر توقّع المشاهد بأن المعلن يجمّل كل شيء، فيصنّفه صادقًا ويخفّض حراسته الذهنية.</p>
+      <p><b>في الكفالة:</b> الصراحة في طبيعة المنتج ترفع الثقة: «العائد الاستثماري يختلف من سنة لسنة، هذي طبيعة الاستثمار». جملة كهذه، إن وافقت واقع المشروع الموثق، تجعل بقية الكلام كله أصدق في أذن المشاهد. والشرط الدائم: الاعتراف يكون بحقيقة فعلية من البريف، فاختراع عيب لطيف للديكور كذب مثل اختراع ميزة.</p>
+      <p><b>في البكج:</b> «العود الملكي ثقيل على الاستخدام اليومي، ولهذا حطينا معه ثلاثة مسك خفيفة للدوام». اعتراف صغير صادق يحوّل تركيبة البكج نفسها إلى دليل تفكير مدروس، ويرفع تصديق كلمة «فاخر» في كل ما حوله.</p>
+    </div>
+
+    <div class="tool"><h4>التحديد يصنع التصديق <span class="en">Specificity</span></h4>
+      <p><b>الفكرة:</b> «خلال ثلاثة أيام» تُصدَّق أكثر من «بسرعة»، و«يدوم لساعات» أقوى من «يدوم طويلًا». الرقم المحدد يوحي للدماغ أن وراءه قياسًا حقيقيًا وشخصًا وزن كلامه، والكلام العام يوحي بأن قائله ما عنده ما يقوله. العموميات لغة من لا يملك حقائق.</p>
+      <p><b>في الكفالة:</b> «أرض في مكة» أقوى من «مشروع خيري مبارك». «سهم واحد» أقوى من «مساهمة بسيطة». وكل رقم إضافي متحقق من البريف (مساحة، عدد أسهم، دورية العائد) يضيف طابوقة في جدار التصديق.</p>
+      <p><b>في البكج:</b> البريف نفسه كنز تحديد، استخدميه كما هو: سبعة منتجات، 299 ريالًا، أوقيتان من العود الملكي، ضمان ثلاثة أيام. أسماء المنتجات ذاتها (قمرا، آسر، رومانس) أدوات تحديد تفصل البكج عن أي «مجموعة عطور فاخرة» عامة في السوق.</p>
+    </div>
+
+    <div class="tool"><h4>التطعيم ضد الاعتراض <span class="en">Inoculation</span></h4>
+      <p><b>الفكرة:</b> مأخوذة من منطق اللقاح الطبي: لو عرضتِ اعتراض المشاهد بنفسك داخل الإعلان ثم أجبتِ عليه، بنيتِ عنده مناعة ضده قبل أن يسمعه من صديق أو منافس أو من وسوسة رأسه. الاعتراض الذي يُجاب مسبقًا يفقد قوته حين يظهر لاحقًا.</p>
+      <p><b>في الكفالة:</b> الاعتراض المؤكد: «استثمار؟ يعني ممكن يخسر؟». الإعلان الناضج يستقبله بنفسه: «سؤالك منطقي: وش يصير لو تأثر العائد؟» ثم يجيب من حقائق المشروع الموثقة: طبيعة الأصل، جهة الإشراف، آلية التقارير. المتبرع الذي أجبتِ سؤاله قبل أن يسأله صار يثق فيك مرتين.</p>
+      <p><b>في البكج:</b> الاعتراض المتوقع: «البكجات عادة يحطون فيها منتج زين وستة حشو». والجواب المدمج: تعريف سريع بوظيفة كل منتج من السبعة في أسبوع المشتري، فلا يبقى في العلبة قطعة بلا دور واضح.</p>
+      <p><b>وقيد مهم على الأداة كلها:</b> التطعيم يصلح للاعتراض الذي يخص منتجك تحديدًا. أما إذا كان الاعتراض من نوع «كل المتاجر تقول نفس الكلام» فترديده داخل إعلانك يثبّت فكرة التشابه في رأس المشاهد قبل أن تعطيه سبب اختلافك، والأذكى تجاوزه إلى أرض ما يوجد فيها تشابه أصلًا.</p>
+    </div>
+
+    <div class="tool"><h4>السؤال يشغّل الدماغ <span class="en">Rhetorical Questions</span></h4>
+      <p><b>الفكرة:</b> حين يسمع المشاهد سؤالًا موجهًا له، دماغه يبدأ تلقائيًا بتوليد إجابة، شاء أم أبى. وهذه اللحظة ثمينة إعلانيًا: انتقل فيها من متفرج سلبي إلى مشارك يفكر داخل موضوعك. «متى آخر مرة غيّرت عطرك؟» سؤال يجبر السامع على تفتيش ذاكرته، وصار في الإعلان من حيث لا يدري.</p>
+      <p><b>والتحذير بنفس أهمية الأداة:</b> السؤال الافتتاحي أداة استهلكها السوق حتى صار بعضه منفّرًا («تبي توفر فلوسك؟» تجعل المشاهد يسحب فورًا لأنه شمّ الإعلان من أول كلمة). يُستخدم السؤال حين يخدم الفكرة فعلًا ويثير فضولًا حقيقيًا، وتوجد بدائل افتتاحية كثيرة: مشهد يفتح القصة من نصها، حكم مباشر يستفز الفضول، أو رد على كلام ما سمعه المشاهد فيتساءل عن القصة.</p>
+    </div>
+
+    <div class="tool"><h4>الخيار الأوسط يفوز <span class="en">Extremeness Aversion</span></h4>
+      <p><b>الفكرة:</b> أمام ثلاثة خيارات بأسعار متدرجة، أغلب الناس يختارون الأوسط: الأرخص يوحي لهم بالرداءة، والأغلى بالإسراف، والأوسط يحس صاحبه أنه اختار بحكمة. النتيجة العملية المدهشة: ترتيب الخيارات وعددها يغيّر المبيعات دون تغيير حرف في الإعلان نفسه.</p>
+      <p><b>في الكفالة:</b> صفحة تبرع تعرض «نصف سهم، سهم، ثلاثة أسهم» سيتجه أغلب زوارها للسهم الكامل في الوسط. وجود الخيار الأكبر يرفع متوسط التبرع حتى لو ما اختاره أحد، لأنه يحرّك موقع «الوسط المعقول» للأعلى.</p>
+      <p><b>في البكج:</b> البكج بـ299 يُقدَّم في المنتصف بين شراء منتج مفرد وبين تجميع السبعة بأسعارها الفردية، فيصبح موقعه في العرض هو الحجة: كامل التجربة، بموقع الاختيار العاقل.</p>
+    </div>
+
+    <div class="rule-box">
+      <span class="tag">خلاصة الصندوق</span>
+      <p>ويتمان يثبت أن قواعد الصياغة الجيدة لها جذور علمية قابلة للقياس. حين نطلب منك تحديد الرقم بدل تعميمه، وقصة واحدة بدل إحصائية، واعترافًا صغيرًا بدل مثالية مصقولة، نحن ننقل نتائج مختبرات، ما نعرض أذواقًا شخصية.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: UNIFIED MAP ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٧</span><h2>الخريطة الموحدة: الكتب الثلاثة في إعلان واحد</h2></div>
+    <p class="sec-src">هنا نركّب كل ما سبق في أداة عمل واحدة</p>
+    <p class="body-p">وصلنا لحظة التجميع. رحلة المشاهد من التمرير الغافل إلى الضغط على «اطلب» أو «تبرع» تمر بأربع محطات، وكل كتاب من الثلاثة متخصص في محطة يعرفها أفضل من غيره:</p>
+    <div class="map">
+      <h3>رحلة القرار الواحد</h3>
+      <p class="cap">من رغبة نائمة إلى فعل: أين يعمل كل كتاب</p>
+      <div class="flow">
+        <div class="node">
+          <span class="stage">قبل كتابة أي حرف</span>
+          <h4>أين السوق؟</h4>
+          <p>حددي درجة وعي الجمهور (السلّم الخماسي) ودرجة نضج السوق (المراحل الخمس). الجواب يقرر من أين يبدأ الإعلان وأي وعد ما زال حيًّا</p>
+          <span class="src s2">شوارتز</span>
+        </div>
+        <div class="arrow">←</div>
+        <div class="node">
+          <span class="stage">أول ثلاث ثوانٍ</span>
+          <h4>الخطاف</h4>
+          <p>المسي واحدة من القوى الثماني بلغة المشاهد نفسها: رغبة موجودة أصلًا ما تحتاج شرحًا ولا إقناعًا</p>
+          <span class="src s3">ويتمان</span>
+        </div>
+        <div class="arrow">←</div>
+        <div class="node">
+          <span class="stage">وسط الإعلان</span>
+          <h4>الإقناع</h4>
+          <p>فعّلي الاختصار المناسب للاعتراض المفتوح: دليل اجتماعي، سلطة، اتساق. وكل إشارة مبنية على حقيقة متحققة</p>
+          <span class="src s1">تشالديني</span>
+        </div>
+        <div class="arrow">←</div>
+        <div class="node">
+          <span class="stage">القفلة</span>
+          <h4>الفعل الآن</h4>
+          <p>ندرة صادقة، وعتبة دخول صغيرة، وحافز يُقدَّم في آخر سطر بعد أن تكون الفكرة اشتغلت</p>
+          <span class="src s0">الثلاثة معًا</span>
+        </div>
+      </div>
+      <div class="ethics-bar">الطبقة الحاكمة فوق الخريطة كلها: كل تقنية في هذه الصفحة تعمل على الكذب كما تعمل على الصدق. وشرطنا الثابت أنها تُستخدم على حقائق متحققة، ضمن حدودنا الاجتماعية، وبكرامة كاملة للمستفيد في الخيري. التقنية قوة، والصدق هو ما يجعلها مهنة.</div>
+    </div>
+
+    <p class="body-p">ولنشاهد الخريطة تشتغل كاملة، نمشي بها على مثالينا من أولها لآخرها:</p>
+    <div class="walk">
+      <h4>🟢 الكفالة بالسهم، عبر المحطات الأربع</h4>
+      <ol>
+        <li><b>أين السوق؟</b> الجمهور البارد في تيك توك على درجة وعي 1–2 (يتصدق ويحس بنقص الأثر الدائم، وما يعرف أن صيغة السهم موجودة). والسوق في مرحلة نضج 3–4: وعود «اكفل يتيمًا» محروقة، والآلية الجديدة هي المساحة الشاغرة. القرار: نفتح من حياة المتبرع، والآلية تحتل قلب الإعلان.</li>
+        <li><b>الخطاف:</b> قوة «البقاء الممتد»: «كل أعمالك لها يوم أخير. إلا وحدة، تقدر تخليها تشتغل من بعدك.»</li>
+        <li><b>الإقناع:</b> الآلية مشروحة ببساطة (سهم ← عائد ← كفالة سنوية)، ثم سلطة الإشراف الرسمي جوابًا على «وين تروح فلوسي»، ثم دليل اجتماعي متحقق: عدد الأسهم المحجوزة.</li>
+        <li><b>الفعل الآن:</b> ندرة صادقة بنيوية («الأسهم محدودة بحجم المشروع») مع عتبة واضحة: «سهمك الأول يبدأ من هنا».</li>
+      </ol>
+    </div>
+    <div class="walk">
+      <h4>🟣 البكج الفاخر، عبر المحطات الأربع</h4>
+      <ol>
+        <li><b>أين السوق؟</b> جمهور بارد على درجة 1–2 (يستخدم عطرًا واحدًا لكل شيء وما يشوفها مشكلة)، وسوق عطور في مرحلة نضج 4–5: كلمات الفخامة كلها محروقة. القرار: ممنوع فتح الإعلان بـ«فاخر» أو بالسعر، ونفتح بمشهد اجتماعي وهوية.</li>
+        <li><b>الخطاف:</b> قوة «المكانة والقبول الاجتماعي» في مشهد معاش: «في المجلس، فيه ناس تعرفهم من ريحتهم قبل وجيههم.»</li>
+        <li><b>الإقناع:</b> القائمة الملموسة بأسمائها ومواقعها في الأسبوع (اعتراض «حشو البكجات» يُطعَّم ضده)، ثم الضمان الذهبي ثلاثة أيام يفكّ اعتراض «أشتري ريحة ما شميتها؟».</li>
+        <li><b>الفعل الآن:</b> السعر يظهر لأول مرة هنا، محمولًا على مقارنة التجميع الفردي: «سبعة منتجات بـ299، والضمان الذهبي يحميك ثلاثة أيام. اطلبه اليوم.»</li>
+      </ol>
+    </div>
+
+    <p class="body-p">وللخريطة استخدام ثانٍ لا يقل قيمة: <strong>التشخيص</strong>. حين يفشل إعلان، حددي محطة الفشل قبل إعادة الكتابة، لأن لكل محطة علاجًا مختلفًا تمامًا:</p>
+    <div class="grid3">
+      <div class="card"><h4>الإعلان ما يوقف أحدًا</h4><p>مشكلة محطة الخطاف (ويتمان): الافتتاحية ما تلمس قوة من الثماني، أو تلمسها بلغة إعلانية متكلفة بدل لغة الناس.</p></div>
+      <div class="card"><h4>يوقفهم وما يقنعهم</h4><p>مشكلة محطة الإقناع (تشالديني): ادعاء كبير بلا دليل بحجمه. أو مشكلة أعمق عند شوارتز: الإعلان يخاطب درجة وعي غير درجة جمهوره الفعلية.</p></div>
+      <div class="card"><h4>يقنعهم وما يحرّكهم</h4><p>مشكلة محطة الفعل: قفلة بلا سبب للتحرك اليوم، أو عتبة دخول تخوّف. وأحيانًا الزاوية نفسها تبني إعجابًا بالعلامة دون سبب للفعل الآن، وهذا نوع معروف يحتاج قرارًا من مديرة المشروع.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: CHARITY VS COMMERCIAL ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٨</span><h2>الخيري والتجاري: نفس الدماغ، حساسية مختلفة</h2></div>
+    <p class="sec-src">مقارنة تطبيقية بين مثالينا</p>
+    <p class="body-p">بعد كل ما سبق، صار عندنا جواب دقيق لسؤال يتكرر في شغلنا: هل كتابة الإعلان الخيري علم مختلف عن التجاري؟ الجواب: القوانين النفسية واحدة بالحرف، والمختلف شيئان: عمق القوى المحرّكة، وحساسية الثقة. الجدول يلخص الفروق على مثالينا:</p>
+    <table class="cmp">
+      <tr><th>المحور</th><th>البكج الفاخر (تجاري)</th><th>كفالة السهم (خيري)</th></tr>
+      <tr><td>القوة المحركة</td><td>المكانة والقبول الاجتماعي والراحة: قوى تخدم صورة الشخص وحياته اليومية</td><td>حماية من نحب، والبقاء الممتد، والانتماء: قوى أعمق في التكوين البشري، ولهذا الخيري حين يُكتب صح يتفوق تأثيرًا على أي منتج</td></tr>
+      <tr><td>الاختصار الأقوى</td><td>الدليل الاجتماعي (تقييمات وتجارب حقيقية) والندرة الصادقة</td><td>الوحدة («لك سهم في مكة») ثم الاتساق (هوية الشريك تكبر من أول سهم)</td></tr>
+      <tr><td>نضج السوق</td><td>مرحلة 4–5: لغة الفخامة محروقة بالكامل، والمخرج آلية العرض المتكامل وخطاب الهوية</td><td>مرحلة 3–4: وعود الكفالة التقليدية مستهلكة، والسهم الاستثماري نفسه هو الآلية الجديدة التي تملأ الفراغ</td></tr>
+      <tr><td>حساسية الثقة</td><td>الغلطة تكلّف مبيعات وتُنسى مع الوقت</td><td>الغلطة تكلّف سمعة الجمعية وتلطّخ الفئة كلها معها، فالتحقق من كل رقم وادعاء هنا مسألة وجود</td></tr>
+      <tr><td>الخط الأحمر</td><td>الاستعجال المزيف والندرة الكاذبة</td><td>الاستعطاف وجرح كرامة المستفيد. والسبب مزدوج: أخلاقي بديهي، وعلمي أيضًا: الاستعطاف يعرض ألمًا بلا نجاة قريبة فيدفع للهروب، ويضع المتبرع فوق الدائرة فيعطّل اختصار الوحدة الذي هو أقوى ما نملك</td></tr>
+      <tr><td>القفلة المثلى</td><td>السعر محمولًا على مقارنة، والضمان درعًا، وطلب فعل واحد واضح</td><td>أثر محدد يُرى، وامتداد زمني للأجر، وعتبة أول سهم سهلة الوصول</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: EXERCISES ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">٩</span><h2>تطبيقات: اختبري فهمك قبل أول بريف</h2></div>
+    <p class="sec-src">تمارين على المثالين نفسيهما، وكل تمرين يرجع لقسم محدد من المادة</p>
+    <div class="exercise"><span class="n">١</span><p><b>على القوى الثماني:</b> اختاري آخر إعلان أعجبك من السوق السعودي (أي منتج). حدّدي أي قوة من الثماني يلمس خطافه الافتتاحي. وإذا ما قدرتي تحددين قوة واضحة، اشرحي ليش نجح رغم ذلك، أو راجعي: هل أعجبك فعلًا كإعلان، أو أعجبك تنفيذه البصري فقط؟</p></div>
+    <div class="exercise"><span class="n">٢</span><p><b>على سلّم الوعي:</b> اكتبي خطافين لمشروع كفالة السهم: واحد لمتبرع سابق في الجمعية (درجة 5) وواحد لجمهور تيك توك البارد (درجة 1–2). المطلوب أن يكون الفرق بينهما جذريًا لدرجة أن قارئهما ما يصدق أنهما لنفس المشروع.</p></div>
+    <div class="exercise"><span class="n">٣</span><p><b>على نضج السوق:</b> افتحي إنستقرام واقرئي إعلانات خمسة متاجر عطور مختلفة. اكتبي الجملة أو الوعد الذي تكرر عند أغلبهم. هذا هو «المحروق» في الفئة. ثم اقترحي وحدة قياس جديدة ما استخدمها أحد منهم، يقدر البكج الفاخر ينافس عليها وحده.</p></div>
+    <div class="exercise"><span class="n">٤</span><p><b>على تشالديني:</b> في إعلانات التبرع المنتشرة، دوّري على مثال واحد يستخدم الندرة استخدامًا صادقًا (موعد حقيقي موثق) ومثال يستخدمها استخدامًا مشكوكًا فيه. اشرحي الفرق، وماذا يخسر صاحب الاستخدام الثاني على المدى البعيد.</p></div>
+    <div class="exercise"><span class="n">٥</span><p><b>على ويتمان:</b> خذي وصف البكج كما في البريف (سبعة منتجات، 299 ريالًا، ضمان ثلاثة أيام) واكتبي منه سطرين: سطر يطبّق «القصة الواحدة تغلب الإحصائية»، وسطر يطبّق «الاعتراف الصغير يبيع». الشرط: كل معلومة فيهما من البريف نفسه دون أي إضافة مخترعة.</p></div>
+    <div class="exercise"><span class="n">٦</span><p><b>على الخريطة كاملة:</b> اكتبي سيناريو إعلان ثلاثين ثانية لمشروع الكفالة موجّهًا لجمهور بارد، ثم راجعيه بالمحطات الأربع: أين خطافه وأي قوة يلمس؟ أين دليله وأي اختصار يفعّل؟ وأين قفلته وما سبب التحرك اليوم؟ المحطة التي ما تلقين لها جوابًا هي المحطة الناقصة في نصك.</p></div>
+    <div class="big-idea" data-label="الجملة الأخيرة في المادة">
+      <p>الكتب الثلاثة كُتبت لسوق أمريكي: تعطينا قوانين القرار البشري الكونية، وتجهل مجتمعنا وعاداته وكرامة العمل الخيري فيه. القوانين نأخذها منهم، <em>والجسد السعودي نصنعه نحن</em>. وهذا بالضبط شغلك.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>أُعدّت هذه المادة لفريق <b>كونسبت</b> — تلخيص وتركيب لأفكار: التأثير (روبرت تشالديني) · الإعلان الخارق (يوجين شوارتز) · كاشفرتايزنج (درو إريك ويتمان)</p>
+  </div>
+</footer>
+
+</body>
+</html>
