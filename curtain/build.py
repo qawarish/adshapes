@@ -52,7 +52,7 @@ if logo:
     data = base64.b64encode(open(logo, "rb").read()).decode()
     mime = mimetypes.guess_type(logo)[0] or "image/png"
     # box sits behind the lifted hem; only its lower-left corner shows through the opening
-    logo_el = f'<image href="data:{mime};base64,{data}" x="744" y="872" width="826" height="605.5" preserveAspectRatio="xMidYMid meet"/>'
+    logo_el = f'<image href="data:{mime};base64,{data}" x="1060" y="955" width="520" height="520" preserveAspectRatio="xMidYMid meet"/>'
 
 fold_el = "".join(f'<path d="{d}" stroke-width="{w}"/>' for d, w in folds)
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048">
