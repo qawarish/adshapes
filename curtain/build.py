@@ -27,7 +27,7 @@ folds = [
 
 # pen drawn along +x with nib tip at origin, then rotated into place
 pen = f"""
-<g transform="translate(1262,1160) rotate(66.5)" stroke-linejoin="round">
+<g transform="translate(1250,1162) rotate(110.5)" stroke-linejoin="round">
  <g fill="{NAVY}" stroke="{GREY}" stroke-width="7" paint-order="stroke">
   <path d="M0,0 C18,-3 44,-10 72,-12 L72,12 C44,10 18,3 0,0 Z"/>
   <path d="M70,-13 L150,-16 C152,-16 153,-15 153,-13 L153,13 C153,15 152,16 150,16 L70,13 Z"/>
@@ -52,13 +52,13 @@ if logo:
     data = base64.b64encode(open(logo, "rb").read()).decode()
     mime = mimetypes.guess_type(logo)[0] or "image/png"
     # box sits behind the lifted hem; only its lower-left corner shows through the opening
-    logo_el = f'<image href="data:{mime};base64,{data}" x="1090" y="960" width="460" height="460" preserveAspectRatio="xMidYMid meet"/>'
+    logo_el = f'<image href="data:{mime};base64,{data}" x="744" y="872" width="826" height="605.5" preserveAspectRatio="xMidYMid meet"/>'
 
 fold_el = "".join(f'<path d="{d}" stroke-width="{w}"/>' for d, w in folds)
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048">
 <rect width="2048" height="2048" fill="{GREY}"/>
 {logo_el}
-<path d="{curtain}" fill="{NAVY}"/>
+<path d="{curtain}" fill="{NAVY}" stroke="{GREY}" stroke-width="10" paint-order="stroke"/>
 <g fill="none" stroke="{WHITE}" stroke-linecap="round">{fold_el}</g>
 {pen}
 {curl}
